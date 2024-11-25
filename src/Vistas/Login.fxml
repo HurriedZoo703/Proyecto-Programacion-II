@@ -39,7 +39,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Text>
-                  <TextField focusTraversable="false" prefHeight="25.0" prefWidth="180.0" />
+                  <TextField fx:id="txt_usuario" focusTraversable="false" prefHeight="25.0" prefWidth="180.0" />
                </children>
                <padding>
                   <Insets left="20.0" />
@@ -52,7 +52,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Text>
-                  <PasswordField prefHeight="25.0" prefWidth="180.0" />
+                  <PasswordField fx:id="txt_clave" prefHeight="25.0" prefWidth="180.0" />
                </children>
                <padding>
                   <Insets left="20.0" />
@@ -62,12 +62,12 @@
       </VBox>
       <VBox alignment="TOP_CENTER" layoutY="335.0" prefHeight="160.0" prefWidth="350.0" spacing="30.0" stylesheets="@../Css/Estilos.css">
          <children>
-            <Button focusTraversable="false" mnemonicParsing="false" styleClass="botonesLogin" text="Iniciar">
+            <Button fx:id="btn_iniciar" focusTraversable="false" mnemonicParsing="false" onAction="#eventAction" styleClass="botonesLogin" text="Iniciar">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button focusTraversable="false" mnemonicParsing="false" styleClass="botonesLogin" text="Registrar">
+            <Button fx:id="btn_registrar" focusTraversable="false" mnemonicParsing="false" onAction="#eventAction" styleClass="botonesLogin" text="Registrar">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
