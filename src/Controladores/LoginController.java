@@ -60,6 +60,7 @@ public class LoginController implements Initializable {
                 stage.setOnCloseRequest((WindowEvent value) -> {
                     controller.closeWindow();
                 });
+                stage.setTitle("CATALOGO");
                 stage.show();
 
                 Stage miStage = (Stage) this.btn_iniciar.getScene().getWindow();
@@ -98,7 +99,7 @@ public class LoginController implements Initializable {
 
             if (usuario != null && usuario.getClave().equals(txt_clave.getText())) {
 
-                alert.setAlertType(Alert.AlertType.WARNING);
+                alert.setAlertType(Alert.AlertType.INFORMATION);
                 alert.setTitle("Información");
                 alert.setContentText("BIENVENIDO..!");
                 alert.showAndWait();                

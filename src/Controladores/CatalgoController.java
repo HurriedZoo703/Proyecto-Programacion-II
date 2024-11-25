@@ -48,19 +48,15 @@ public class CatalgoController implements Initializable {
     @FXML
     private void eventAction(MouseEvent event) {
 
-        Text txt = (Text) event.getSource();
+        if (event.getSource() == btn_cerrarS) {
 
-        switch (txt.getId()) {
-            case "btn_cerrarS":
+            closeWindow();
 
-                closeWindow();
-                
-                break;
-            case "btn_historial":
+        } else if (event.getSource() == btn_cerrarS) {
 
-                break;
-            default:
-                throw new AssertionError();
+            System.out.println("mientras");
+
         }
+
     }
 }
