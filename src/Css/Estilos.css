@@ -12,3 +12,7 @@
 .botonesLogin:pressed{
     -fx-background-color: #4D9DC0;
 }
+
+#fondoTitulo{
+    -fx-background-color: #5FC2ED;
+}
