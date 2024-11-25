@@ -3,7 +3,7 @@ package Modelos;
 public class NodoUsuario {
     
     private String nombre;
-    private int identficacion;
+    private int identificacion;
     private String telefono;
     private String correo;
     private String clave;
@@ -11,7 +11,7 @@ public class NodoUsuario {
 
     public NodoUsuario(String nombre, int identficacion, String telefono, String correo, String clave) {
         this.nombre = nombre;
-        this.identficacion = identficacion;
+        this.identificacion = identficacion;
         this.telefono = telefono;
         this.correo = correo;
         this.clave = clave;
@@ -27,12 +27,12 @@ public class NodoUsuario {
         this.nombre = nombre;
     }
 
-    public int getIdentficacion() {
-        return identficacion;
+    public int getIdentificacion() {
+        return identificacion;
     }
 
-    public void setIdentficacion(int identficacion) {
-        this.identficacion = identficacion;
+    public void setIdentificacion(int identificacion) {
+        this.identificacion = identificacion;
     }
 
     public String getTelefono() {
