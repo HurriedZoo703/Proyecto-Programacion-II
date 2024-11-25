@@ -1,6 +1,8 @@
 package Modelos;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -164,7 +166,7 @@ public class ListaUsuarios {
             return;
         }
     }
-    
+
     public void guardarUsuariosEnArchivoTXT(ListaUsuarios lista) {
 
         String direccion = System.getProperty("user.dir") + "\\src\\Archivos_TXT\\Usuarios.txt";
@@ -177,7 +179,7 @@ public class ListaUsuarios {
             while (actual != null) {
                 writer.write(actual.getNombre() + ", ");
                 writer.write(actual.getIdentificacion() + ", ");
-                writer.write(actual.getTelefono()+ ", ");
+                writer.write(actual.getTelefono() + ", ");
                 writer.write(actual.getCorreo() + ", ");
                 writer.write(actual.getClave());
 
@@ -187,7 +189,54 @@ public class ListaUsuarios {
             }
 
         } catch (IOException e) {
-            Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, e);            
+            Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    public void llenar(String nombre, int identificacion, String telefono, String correo, String clave) {
+
+        NodoUsuario usuario = new NodoUsuario(nombre, identificacion, telefono, correo, clave);
+
+        if (usuario != null) {
+            if (getCabeza() == null) {
+                setCabeza(usuario);
+                nAgregados++;               
+            } else {
+                usuario.setSig(getCabeza());
+                getCabeza().setAnt(usuario);
+                setCabeza(usuario);
+                nAgregados++;                
+            }
+        }
+    }
+
+    public void llenarUsuariosDesdeArchivoTXT() {
+
+        String direccion = System.getProperty("user.dir") + "\\src\\Archivos_TXT\\Usuarios.txt";
+
+        Path archivo = Paths.get(direccion);
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivo.toFile()))) {
+
+            String linea;
+
+            vaciar();
+
+            while ((linea = reader.readLine()) != null) {
+
+                String[] atributos = linea.split(", ");
+
+                String nombre = atributos[0];
+                String identificacion = atributos[1];
+                String telefono = atributos[2];
+                String correo = atributos[3];
+                String clave = atributos[4];
+
+                llenar(nombre, Integer.parseInt(identificacion), telefono, correo, clave);
+            }
+
+        } catch (IOException e) {
+            Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 }

@@ -9,9 +9,9 @@ public class NodoUsuario {
     private String clave;
     private NodoUsuario sig, ant;
 
-    public NodoUsuario(String nombre, int identficacion, String telefono, String correo, String clave) {
+    public NodoUsuario(String nombre, int identificacion, String telefono, String correo, String clave) {
         this.nombre = nombre;
-        this.identificacion = identficacion;
+        this.identificacion = identificacion;
         this.telefono = telefono;
         this.correo = correo;
         this.clave = clave;
