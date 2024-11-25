@@ -1,5 +1,8 @@
 package Modelos;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class ListaUsuarios {
 
     private NodoUsuario cabeza;
@@ -75,5 +78,22 @@ public class ListaUsuarios {
         }
     }
     
-    
+    public ObservableList<NodoUsuario> obtenerUsuarios() {
+        ObservableList<NodoUsuario> todos = FXCollections.observableArrayList();
+
+        if (getCabeza()== null) {
+            return todos;
+        }
+
+        NodoUsuario actual = getCabeza();
+
+        do {
+
+            todos.add(actual);
+            actual = actual.getSig();
+
+        } while (actual != null && actual != getCabeza());
+
+        return todos;
+    }
 }
