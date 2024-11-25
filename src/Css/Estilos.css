@@ -16,3 +16,17 @@
 #fondoTitulo{
     -fx-background-color: #5FC2ED;
 }
+
+#etiqueta:pressed{
+    -fx-underline: false;
+}
+
+#etiqueta:hover{
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+#contenedorC{
+    -fx-border-color: #000000;
+    -fx-border-radius: 8px;
+}
