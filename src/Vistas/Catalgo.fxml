@@ -1,14 +1,386 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.CatalgoController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="350.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23" fx:controller="Controladores.CatalgoController">
     <stylesheets>
-        <URL value="@/Css/Estilos.css"/>
+        <URL value="@/Css/Estilos.css" />
     </stylesheets>
+   <children>
+      <HBox alignment="CENTER" layoutY="447.0" prefHeight="50.0" prefWidth="350.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
+         <children>
+            <Text id="etiqueta" fill="#4bc3eb" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerrar Sesión">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text id="etiqueta" fill="#4bc3eb" strokeType="OUTSIDE" strokeWidth="0.0" text="Historial de compras">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="450.0" prefWidth="350.0" vbarPolicy="NEVER">
+         <content>
+            <FlowPane alignment="CENTER" hgap="5.0" prefHeight="500.0" prefWidth="335.0" vgap="10.0">
+               <children>
+                  <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@../Css/Estilos.css">
+                     <children>
+                        <ImageView fitHeight="115.0" fitWidth="80.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Imagenes/Camiseta-Gris.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Camiseta tipo Polo">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="77.0" promptText="TALLA" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="10.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gris">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="98.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@../Css/Estilos.css">
+                     <children>
+                        <ImageView fitHeight="115.0" fitWidth="80.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Imagenes/Camiseta-blanca.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Camiseta tipo Polo">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="77.0" promptText="TALLA" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="10.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Blanco">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="98.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@../Css/Estilos.css">
+                     <children>
+                        <ImageView fitHeight="115.0" fitWidth="80.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Imagenes/Camiseta-Roja.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Camiseta tipo Polo">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="77.0" promptText="TALLA" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="10.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rojo">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="98.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@../Css/Estilos.css">
+                     <children>
+                        <ImageView fitHeight="115.0" fitWidth="80.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Imagenes/Camiseta-Rosa.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Camiseta tipo Polo">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="77.0" promptText="TALLA" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="10.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rosa">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="98.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@../Css/Estilos.css">
+                     <children>
+                        <ImageView fitHeight="115.0" fitWidth="80.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Imagenes/Camiseta-Negra.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Camiseta tipo Polo">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="77.0" promptText="TALLA" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="10.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Azul-Tuquí">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="98.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@../Css/Estilos.css">
+                     <children>
+                        <ImageView fitHeight="120.0" fitWidth="80.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Imagenes/Camiseta-Verde.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Camiseta tipo Polo">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
+                           <children>
+                              <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="77.0" promptText="TALLA" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="10.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Verde">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="98.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </FlowPane>
+         </content>
+      </ScrollPane>
+   </children>
 </AnchorPane>
