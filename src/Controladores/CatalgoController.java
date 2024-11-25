@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -17,12 +18,14 @@ public class CatalgoController implements Initializable {
 
     @FXML
     private Text btn_cerrarS;
+    @FXML
+    private Text btn_historial;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     public void closeWindow() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/Login.fxml"));
@@ -39,6 +42,25 @@ public class CatalgoController implements Initializable {
             miStage.close();
         } catch (IOException ex) {
             Logger.getLogger(CatalgoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void eventAction(MouseEvent event) {
+
+        Text txt = (Text) event.getSource();
+
+        switch (txt.getId()) {
+            case "btn_cerrarS":
+
+                closeWindow();
+                
+                break;
+            case "btn_historial":
+
+                break;
+            default:
+                throw new AssertionError();
         }
     }
 }

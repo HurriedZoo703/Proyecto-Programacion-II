@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class ListaUsuarios {
@@ -109,7 +108,7 @@ public class ListaUsuarios {
         return todos;
     }
 
-    public void agregarUsuario(TextField txtNombre, TextField txtIdentificacion, TextField txtCell, TextField txtGmail, PasswordField txtPassword) {
+    public void agregarUsuario(TextField txtNombre, TextField txtIdentificacion, TextField txtCell, TextField txtGmail, TextField txtPassword) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
 
         NodoUsuario user1 = buscarPorCorreo(txtGmail.getText());

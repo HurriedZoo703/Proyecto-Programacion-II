@@ -20,12 +20,12 @@
    <children>
       <HBox alignment="CENTER" layoutY="447.0" prefHeight="50.0" prefWidth="350.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
          <children>
-            <Text id="etiqueta" fx:id="btn_cerrarS" fill="#4bc3eb" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerrar Sesión">
+            <Text id="etiqueta" fx:id="btn_cerrarS" fill="#4bc3eb" onMouseClicked="#eventAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerrar Sesión">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text id="etiqueta" fill="#4bc3eb" strokeType="OUTSIDE" strokeWidth="0.0" text="Historial de compras">
+            <Text id="etiqueta" fx:id="btn_historial" fill="#4bc3eb" onMouseClicked="#eventAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Historial de compras">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
