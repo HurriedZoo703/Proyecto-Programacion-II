@@ -1,5 +1,10 @@
 package Modelos;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -157,6 +162,32 @@ public class ListaUsuarios {
         } catch (NumberFormatException e) {
             Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, e);
             return;
+        }
+    }
+    
+    public void guardarUsuariosEnArchivoTXT(ListaUsuarios lista) {
+
+        String direccion = System.getProperty("user.dir") + "\\src\\Archivos_TXT\\Usuarios.txt";
+
+        Path archivo = Paths.get(direccion);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo.toFile(), false))) {
+            NodoUsuario actual = lista.getCabeza();
+
+            while (actual != null) {
+                writer.write(actual.getNombre() + ", ");
+                writer.write(actual.getIdentificacion() + ", ");
+                writer.write(actual.getTelefono()+ ", ");
+                writer.write(actual.getCorreo() + ", ");
+                writer.write(actual.getClave());
+
+                writer.newLine();
+
+                actual = actual.getSig();
+            }
+
+        } catch (IOException e) {
+            Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, e);            
         }
     }
 }
