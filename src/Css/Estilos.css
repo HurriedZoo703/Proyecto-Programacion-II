@@ -1,0 +1,14 @@
+.botonesLogin{
+    -fx-background-color: #5FC2ED;
+    -fx-background-radius: 8px;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 140px;
+}
+
+.botonesLogin:hover{
+    -fx-background-color: #B0E1F6;
+}
+
+.botonesLogin:pressed{
+    -fx-background-color: #4D9DC0;
+}
