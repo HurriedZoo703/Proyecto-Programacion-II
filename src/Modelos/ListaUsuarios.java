@@ -1,7 +1,12 @@
 package Modelos;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class ListaUsuarios {
 
@@ -45,9 +50,9 @@ public class ListaUsuarios {
             return usuario;
         }
     }
-    
+
     public NodoUsuario buscarPorCorreo(String gmail) {
-        if (getCabeza()== null) {
+        if (getCabeza() == null) {
             return null;
         } else {
             NodoUsuario aux = getCabeza();
@@ -63,12 +68,12 @@ public class ListaUsuarios {
     }
 
     public NodoUsuario buscarPorID(int identificacion) {
-        if (getCabeza()== null) {
+        if (getCabeza() == null) {
             return null;
         } else {
             NodoUsuario aux = getCabeza();
             while (aux != null) {
-                if (aux.getIdentificacion()== identificacion) {
+                if (aux.getIdentificacion() == identificacion) {
                     return aux;
                 } else {
                     aux = aux.getSig();
@@ -77,11 +82,11 @@ public class ListaUsuarios {
             return null;
         }
     }
-    
+
     public ObservableList<NodoUsuario> obtenerUsuarios() {
         ObservableList<NodoUsuario> todos = FXCollections.observableArrayList();
 
-        if (getCabeza()== null) {
+        if (getCabeza() == null) {
             return todos;
         }
 
@@ -95,5 +100,63 @@ public class ListaUsuarios {
         } while (actual != null && actual != getCabeza());
 
         return todos;
+    }
+
+    public void agregarUsuario(TextField txtNombre, TextField txtIdentificacion, TextField txtCell, TextField txtGmail, PasswordField txtPassword) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+
+        NodoUsuario user1 = buscarPorCorreo(txtGmail.getText());
+        NodoUsuario user2 = buscarPorID(Integer.parseInt(txtIdentificacion.getText()));
+
+        try {
+
+            if (user1 != null) {
+                alert.setTitle("Importante...!");
+                alert.setContentText("Ya existe un usuario con este Correo");
+                alert.showAndWait();
+                txtGmail.setText("");
+                txtGmail.requestFocus();
+                return;
+            } else if (user2 != null) {
+                alert.setTitle("Importante...!");
+                alert.setContentText("Ya existe un usuario con esta identificación");
+                alert.showAndWait();
+                txtIdentificacion.setText("");
+                txtIdentificacion.requestFocus();
+                return;
+            } else {
+
+                alert.setAlertType(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Dialogo de confirmación.");
+                alert.setContentText("Registro realizado con exito...!\n"
+                        + "Felicidades...! ya haces parte de nuestros usuarios.");
+
+                NodoUsuario nuevo = new NodoUsuario(txtNombre.getText(), Integer.parseInt(txtIdentificacion.getText()), txtCell.getText(), txtGmail.getText(), txtPassword.getText());
+
+                if (nuevo != null) {
+                    if (getCabeza() == null) {
+                        setCabeza(nuevo);
+                        nAgregados++;
+                        alert.showAndWait();
+                    } else {
+                        nuevo.setSig(getCabeza());
+                        getCabeza().setAnt(nuevo);
+                        setCabeza(nuevo);
+                        nAgregados++;
+                        alert.showAndWait();
+                    }
+                }
+
+                txtNombre.setText("");
+                txtIdentificacion.setText("");
+                txtCell.setText("");
+                txtGmail.setText("");
+                txtPassword.setText("");
+            }
+
+        } catch (NumberFormatException e) {
+            Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, e);
+            return;
+        }
     }
 }
