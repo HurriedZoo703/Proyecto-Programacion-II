@@ -10,12 +10,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="350.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.RegistroController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="450.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.RegistroController">
     <stylesheets>
         <URL value="@/Css/Estilos.css" />
     </stylesheets>
    <children>
-      <HBox id="fondoTitulo" alignment="CENTER" prefHeight="70.0" prefWidth="350.0" stylesheets="@../Css/Estilos.css">
+      <HBox id="fondoTitulo" alignment="CENTER" prefHeight="70.0" prefWidth="450.0" stylesheets="@../Css/Estilos.css">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registro">
                <font>
@@ -24,7 +24,7 @@
             </Text>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="105.0" prefHeight="395.0" prefWidth="350.0" spacing="15.0" stylesheets="@../Css/Estilos.css">
+      <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="141.0" prefHeight="395.0" prefWidth="350.0" spacing="15.0" stylesheets="@../Css/Estilos.css">
          <children>
             <HBox alignment="CENTER" prefHeight="30.0" prefWidth="350.0" spacing="58.0">
                <children>
