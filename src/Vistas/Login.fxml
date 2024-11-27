@@ -13,14 +13,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="350.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="450.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.LoginController">
     <stylesheets>
         <URL value="@Css/Estilos.css" />
     </stylesheets>
    <children>
-      <HBox alignment="CENTER" prefHeight="220.0" prefWidth="350.0">
+      <HBox alignment="CENTER" layoutX="50.0" prefHeight="220.0" prefWidth="350.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="170.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -30,29 +30,35 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox layoutY="220.0" prefHeight="120.0" prefWidth="350.0" spacing="30.0">
+      <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="262.0" prefHeight="120.0" prefWidth="350.0" spacing="20.0">
          <children>
-            <HBox prefHeight="27.0" prefWidth="350.0" spacing="30.0">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0" spacing="33.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="txt_usuario" focusTraversable="false" prefHeight="25.0" prefWidth="180.0" />
+                  <TextField fx:id="txt_usuario" focusTraversable="false" prefHeight="35.0" prefWidth="180.0" promptText="Ingrese su correo">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></TextField>
                </children>
                <padding>
                   <Insets left="20.0" />
                </padding>
             </HBox>
-            <HBox prefHeight="27.0" prefWidth="350.0" spacing="5.0">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0" spacing="5.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="txt_clave" prefHeight="25.0" prefWidth="180.0" />
+                  <PasswordField fx:id="txt_clave" focusTraversable="false" prefHeight="35.0" prefWidth="180.0" promptText="Ingrese su clave">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></PasswordField>
                </children>
                <padding>
                   <Insets left="20.0" />
@@ -60,7 +66,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" layoutY="335.0" prefHeight="160.0" prefWidth="350.0" spacing="30.0" stylesheets="@../Css/Estilos.css">
+      <HBox alignment="CENTER" layoutX="55.0" layoutY="382.0" prefHeight="120.0" prefWidth="350.0" spacing="30.0" stylesheets="@../Css/Estilos.css">
          <children>
             <Button fx:id="btn_iniciar" focusTraversable="false" mnemonicParsing="false" onAction="#eventAction" styleClass="botonesLogin" text="Iniciar">
                <font>
@@ -73,6 +79,6 @@
                </font>
             </Button>
          </children>
-      </VBox>
+      </HBox>
    </children>
 </AnchorPane>
