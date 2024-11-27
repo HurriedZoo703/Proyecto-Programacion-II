@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -20,6 +21,18 @@ public class CatalgoController implements Initializable {
     private Text btn_cerrarS;
     @FXML
     private Text btn_historial;
+    @FXML
+    private ImageView ima_C1;
+    @FXML
+    private ImageView ima_C2;
+    @FXML
+    private ImageView ima_C3;
+    @FXML
+    private ImageView ima_C4;
+    @FXML
+    private ImageView ima_C5;
+    @FXML
+    private ImageView ima_C6;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
