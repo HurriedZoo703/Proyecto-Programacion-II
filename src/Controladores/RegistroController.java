@@ -2,11 +2,15 @@ package Controladores;
 
 import Modelos.Gestor;
 import Modelos.ListaUsuarios;
+import Modelos.NodoCamiseta;
+import Modelos.PilaCamisetas;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +25,8 @@ import javafx.stage.Stage;
 public class RegistroController implements Initializable {
 
     private final ListaUsuarios lista = Gestor.obtenerInstancia().getLista();
-    
+    private final PilaCamisetas pilaC = Gestor.obtenerInstancia().getPilaCamiseta();
+
     @FXML
     private TextField txtNombre;
     @FXML
@@ -90,9 +95,28 @@ public class RegistroController implements Initializable {
 
                         if (!"".equals(txtPassword.getText())) {
 
+                            int id = Integer.parseInt(txtIdentficacion.getText());
+                            NodoCamiseta c1 = new NodoCamiseta(id, "Gris", "/Imagenes/Camiseta-Gris.png");
+                            NodoCamiseta c2 = new NodoCamiseta(id, "Negra", "/Imagenes/Camiseta-Negra.png");
+                            NodoCamiseta c3 = new NodoCamiseta(id, "Roja", "/Imagenes/Camiseta-Roja.png");
+                            NodoCamiseta c4 = new NodoCamiseta(id, "Rosa", "/Imagenes/Camiseta-Rosa.png");
+                            NodoCamiseta c5 = new NodoCamiseta(id, "Verde", "/Imagenes/Camiseta-Verde.png");
+                            NodoCamiseta c6 = new NodoCamiseta(id, "Blanca", "/Imagenes/Camiseta-blanca.png");
+
                             lista.agregarUsuario(txtNombre, txtIdentficacion, txtCell, txtGmail, txtPassword);
                             lista.guardarUsuariosEnArchivoTXT(lista);
 
+                            ObservableList<NodoCamiseta> camisetas = FXCollections.observableArrayList();
+                            camisetas.addAll(c1, c2, c3, c4, c5, c6);
+
+                            for (NodoCamiseta camiseta : camisetas) {
+                                pilaC.setPush(camiseta);
+                                pilaC.setPushLD(camiseta);
+                            }
+
+                            pilaC.guardarCamisetas(pilaC.getClonarB());
+                            pilaC.guardarCamisetasLD(pilaC.getClonarLD());
+                                
                             if (lista.getnAgregados() != 0) {
                                 closeWindow();
                             }
