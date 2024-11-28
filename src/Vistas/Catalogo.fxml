@@ -20,7 +20,7 @@
         <URL value="@/Css/Estilos.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="600.0" prefWidth="450.0" visible="false">
+      <Pane fx:id="panel_detalles" prefHeight="600.0" prefWidth="450.0" visible="false">
          <children>
             <VBox alignment="CENTER" layoutY="50.0" prefHeight="498.0" prefWidth="450.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -142,7 +142,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane prefHeight="600.0" prefWidth="450.0">
+      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0">
          <children>
             <HBox alignment="CENTER" layoutY="551.0" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -164,7 +164,7 @@
                      <children>
                         <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="250.0" prefWidth="150.0" stylesheets="@../Css/Estilos.css">
                            <children>
-                              <ImageView fx:id="ima_C1" fitHeight="125.0" fitWidth="100.0" pickOnBounds="true">
+                              <ImageView fx:id="ima_C1" fitHeight="125.0" fitWidth="100.0" onMouseClicked="#mouseCliked" pickOnBounds="true">
                                  <image>
                                     <Image url="@../Imagenes/Camiseta-Gris.png" />
                                  </image>
@@ -221,7 +221,7 @@
                         </VBox>
                         <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="250.0" prefWidth="150.0" stylesheets="@../Css/Estilos.css">
                            <children>
-                              <ImageView fx:id="ima_C2" fitHeight="125.0" fitWidth="100.0" pickOnBounds="true">
+                              <ImageView fx:id="ima_C2" fitHeight="125.0" fitWidth="100.0" onMouseClicked="#mouseCliked" pickOnBounds="true">
                                  <image>
                                     <Image url="@../Imagenes/Camiseta-blanca.png" />
                                  </image>
@@ -278,7 +278,7 @@
                         </VBox>
                         <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="250.0" prefWidth="150.0" stylesheets="@../Css/Estilos.css">
                            <children>
-                              <ImageView fx:id="ima_C3" fitHeight="125.0" fitWidth="100.0" pickOnBounds="true">
+                              <ImageView fx:id="ima_C3" fitHeight="125.0" fitWidth="100.0" onMouseClicked="#mouseCliked" pickOnBounds="true">
                                  <image>
                                     <Image url="@../Imagenes/Camiseta-Roja.png" />
                                  </image>
@@ -335,7 +335,7 @@
                         </VBox>
                         <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="250.0" prefWidth="150.0" stylesheets="@../Css/Estilos.css">
                            <children>
-                              <ImageView fx:id="ima_C4" fitHeight="125.0" fitWidth="100.0" pickOnBounds="true">
+                              <ImageView fx:id="ima_C4" fitHeight="125.0" fitWidth="100.0" onMouseClicked="#mouseCliked" pickOnBounds="true">
                                  <image>
                                     <Image url="@../Imagenes/Camiseta-Rosa.png" />
                                  </image>
@@ -392,7 +392,7 @@
                         </VBox>
                         <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="250.0" prefWidth="150.0" stylesheets="@../Css/Estilos.css">
                            <children>
-                              <ImageView fx:id="ima_C5" fitHeight="125.0" fitWidth="100.0" pickOnBounds="true">
+                              <ImageView fx:id="ima_C5" fitHeight="125.0" fitWidth="100.0" onMouseClicked="#mouseCliked" pickOnBounds="true">
                                  <image>
                                     <Image url="@../Imagenes/Camiseta-Negra.png" />
                                  </image>
@@ -449,7 +449,7 @@
                         </VBox>
                         <VBox id="contenedorC" alignment="TOP_CENTER" prefHeight="250.0" prefWidth="150.0" stylesheets="@../Css/Estilos.css">
                            <children>
-                              <ImageView fx:id="ima_C6" fitHeight="125.0" fitWidth="100.0" pickOnBounds="true">
+                              <ImageView fx:id="ima_C6" fitHeight="125.0" fitWidth="100.0" onMouseClicked="#mouseCliked" pickOnBounds="true">
                                  <image>
                                     <Image url="@../Imagenes/Camiseta-Verde.png" />
                                  </image>
@@ -513,7 +513,7 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Pane prefHeight="600.0" prefWidth="450.0" visible="false">
+      <Pane fx:id="panel_bolsa" prefHeight="600.0" prefWidth="450.0" visible="false">
          <children>
             <HBox id="fondoTitulo" alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -1011,6 +1011,581 @@
                            </image>
                         </ImageView>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/Icon-bag.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0" visible="false">
+         <children>
+            <HBox id="fondoTitulo" alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LISTA DE DESEOS">
+                     <font>
+                        <Font name="SansSerif Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <ScrollPane hbarPolicy="NEVER" layoutY="50.0" prefHeight="500.0" prefWidth="450.0" stylesheets="@../Css/Estilos.css" vbarPolicy="NEVER">
+               <content>
+                  <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="650.0" prefWidth="450.0" vgap="5.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                           <children>
+                              <ImageView fitHeight="80.0" fitWidth="65.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../Imagenes/Camiseta-Gris.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="18.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="98.0" prefWidth="163.0" spacing="20.0">
+                                 <HBox.margin>
+                                    <Insets left="80.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                           <children>
+                              <ImageView fitHeight="80.0" fitWidth="70.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../Imagenes/Camiseta-Negra.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="18.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="98.0" prefWidth="163.0" spacing="20.0">
+                                 <HBox.margin>
+                                    <Insets left="80.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                           <children>
+                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/Camiseta-Roja.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="18.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="98.0" prefWidth="163.0" spacing="20.0">
+                                 <HBox.margin>
+                                    <Insets left="80.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                           <children>
+                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/Camiseta-Rosa.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="18.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="98.0" prefWidth="163.0" spacing="20.0">
+                                 <HBox.margin>
+                                    <Insets left="80.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                           <children>
+                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/Camiseta-Verde.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="18.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="98.0" prefWidth="163.0" spacing="20.0">
+                                 <HBox.margin>
+                                    <Insets left="80.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                           <children>
+                              <ImageView fitHeight="80.0" fitWidth="65.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../Imagenes/Camiseta-blanca.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="18.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="98.0" prefWidth="163.0" spacing="20.0">
+                                 <HBox.margin>
+                                    <Insets left="80.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+            <HBox alignment="CENTER_LEFT" layoutY="550.0" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
+               <children>
+                  <ImageView fx:id="btnHome" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/Icon-home.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="250.0" spacing="20.0">
+                     <children>
+                        <ImageView fx:id="btnFav" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/Icon-Fav.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="btnBolsa" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/Icon-bag.png" />
                            </image>
