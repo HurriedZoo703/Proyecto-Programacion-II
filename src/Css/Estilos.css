@@ -35,3 +35,15 @@
     -fx-border-color: #000000;
     -fx-border-radius: 8px;
 }
+
+#btnPasarB{
+    -fx-background-color: #83F981;
+    -fx-pref-height: 30px;
+    -fx-pref-width: 150px;
+}
+
+#eliminarLD{
+    -fx-background-color: #FB8181;
+    -fx-pref-height: 30px;
+    -fx-pref-width: 152px;
+}
