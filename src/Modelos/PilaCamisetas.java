@@ -1,5 +1,12 @@
 package Modelos;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Stack;
 import javafx.scene.control.Alert;
 
@@ -103,7 +110,7 @@ public class PilaCamisetas {
             pila.push(temp.pop());
         }
     }
-    
+
     //Metodos PilaLD
     public void setPushLD(NodoCamiseta c) {
         int pos = pilaLD.indexOf(c);
@@ -186,4 +193,57 @@ public class PilaCamisetas {
             pila.push(temp.pop());
         }
     }
+
+    public void guardarCamisetas(Stack<NodoCamiseta> pila) {
+
+        String direccion = System.getProperty("user.dir") + "\\src\\Archivos_TXT\\CamisetasBolsa.txt";
+
+        Path archivo = Paths.get(direccion);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo.toFile(), false))) {
+            Stack<NodoCamiseta> camiAux = pila;
+
+            for (NodoCamiseta camiseta : camiAux) {
+                writer.write(camiseta.getIdPropietario() + ", ");
+                writer.write(camiseta.getColor() + ", ");
+                writer.write(camiseta.getURL_ima());
+                writer.newLine();
+            }
+
+            System.out.println("Datos guardados correctamente en: CamisetasBolsa.txt.");
+        } catch (IOException e) {
+            System.out.println("Error al guardar los datos en: CamisetasBolsa.txt: " + e.getMessage());
+        }
+    }
+
+    public void cargarCamisetas() {
+
+        String direccion = System.getProperty("user.dir") + "\\src\\Archivos_TXT\\CamisetasBolsa.txt";
+
+        Path archivo = Paths.get(direccion);
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivo.toFile()))) {
+
+            String linea;
+            if (!pilaB.isEmpty()) {
+                pilaB.clear();
+            }
+            while ((linea = reader.readLine()) != null) {
+
+                String[] atributos = linea.split(", ");
+
+                int idPropietario = Integer.parseInt(atributos[0]);
+                String color = atributos[1];
+                String URL = atributos[2];
+
+                NodoCamiseta camiseta = new NodoCamiseta(idPropietario, color, URL);
+
+                setPush(camiseta);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error al cargar los datos desde CamisetasBolsa.txt: " + e.getMessage());
+        }
+    }
+
 }
