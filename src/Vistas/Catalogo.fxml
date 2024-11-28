@@ -104,19 +104,19 @@
             </VBox>
             <HBox alignment="CENTER_LEFT" layoutY="550.0" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnHome" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/Icon-home.png" />
                      </image>
                   </ImageView>
                   <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="250.0" spacing="20.0">
                      <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnFav" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/Icon-Fav.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnBolsa" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/Icon-bag.png" />
                            </image>
@@ -998,19 +998,19 @@
             </ScrollPane>
             <HBox alignment="CENTER_LEFT" layoutY="550.0" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnHome2" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/Icon-home.png" />
                      </image>
                   </ImageView>
                   <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="250.0" spacing="20.0">
                      <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnFav2" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/Icon-Fav.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnBolsa2" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/Icon-bag.png" />
                            </image>
@@ -1573,19 +1573,19 @@
             </ScrollPane>
             <HBox alignment="CENTER_LEFT" layoutY="550.0" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
-                  <ImageView fx:id="btnHome" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnHome3" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/Icon-home.png" />
                      </image>
                   </ImageView>
                   <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="250.0" spacing="20.0">
                      <children>
-                        <ImageView fx:id="btnFav" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnFav3" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/Icon-Fav.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="btnBolsa" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnBolsa3" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/Icon-bag.png" />
                            </image>
