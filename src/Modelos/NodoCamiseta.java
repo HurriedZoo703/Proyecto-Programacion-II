@@ -1,13 +1,19 @@
 package Modelos;
 
 public class NodoCamiseta {
-    
+
     private int idPropietario;
     private String URL_ima;
     private String talla;
     private String color;
     private float precio;
     private int tComprado;
+
+    public NodoCamiseta(int idPropietario, String color, String URL_ima) {
+        this.idPropietario = idPropietario;
+        this.color = color;
+        this.URL_ima = URL_ima;
+    }
 
     public NodoCamiseta(int idPropietario, String URL_ima, String talla, String color, float precio) {
         this.idPropietario = idPropietario;
@@ -25,7 +31,7 @@ public class NodoCamiseta {
     public void setIdPropietario(int idPropietario) {
         this.idPropietario = idPropietario;
     }
-    
+
     public String getURL_ima() {
         return URL_ima;
     }
@@ -56,7 +62,7 @@ public class NodoCamiseta {
 
     public void setPrecio(float precio) {
         this.precio = precio;
-    }       
+    }
 
     public int gettComprado() {
         return tComprado;
@@ -65,5 +71,5 @@ public class NodoCamiseta {
     public void settComprado(int tComprado) {
         this.tComprado = tComprado;
     }
-       
+
 }
