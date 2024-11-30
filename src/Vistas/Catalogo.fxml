@@ -142,7 +142,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0">
+      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0" visible="false">
          <children>
             <HBox alignment="CENTER" layoutY="551.0" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -528,7 +528,7 @@
                <content>
                   <VBox prefHeight="550.0" prefWidth="450.0" spacing="10.0" stylesheets="@../Css/Estilos.css">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Rosada" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -622,7 +622,7 @@
                               <Insets left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Blanca" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -716,7 +716,7 @@
                               <Insets left="5.0" right="5.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Verde" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -810,7 +810,7 @@
                               <Insets left="5.0" right="5.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Roja" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -901,7 +901,7 @@
                               </ImageView>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Gris" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1027,7 +1027,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0" visible="false">
+      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0">
          <children>
             <HBox id="fondoTitulo" alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -1042,7 +1042,7 @@
                <content>
                   <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="650.0" prefWidth="450.0" vgap="5.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Gris" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="65.0" pickOnBounds="true">
                                  <image>
@@ -1129,7 +1129,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Turqui" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="70.0" pickOnBounds="true">
                                  <image>
@@ -1216,7 +1216,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Rojo" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1303,7 +1303,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Rosada" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1390,7 +1390,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Verde" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1477,7 +1477,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Blanca" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="65.0" pickOnBounds="true">
                                  <image>
