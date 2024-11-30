@@ -36,14 +36,14 @@
                         <Insets bottom="20.0" />
                      </padding>
                   </HBox>
-                  <ImageView fitHeight="260.0" fitWidth="295.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imaDG" fitHeight="260.0" fitWidth="295.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/Camiseta-Rosa.png" />
                      </image>
                   </ImageView>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="450.0">
                      <children>
-                        <ComboBox focusTraversable="false" prefHeight="30.0" prefWidth="100.0" promptText="TALLA" />
+                        <ComboBox fx:id="combDG" focusTraversable="false" prefHeight="30.0" prefWidth="100.0" promptText="TALLA" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
@@ -53,7 +53,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rosado">
+                        <Text fx:id="txtColorDG" strokeType="OUTSIDE" strokeWidth="0.0" text="Rosado">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -88,12 +88,12 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="20.0" stylesheets="@../Css/Estilos.css">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="botonesLogin" text="Agregar a la bolsa">
+                        <Button fx:id="btn_AgregarABolsa" mnemonicParsing="false" onAction="#eventAction" styleClass="botonesLogin" text="Agregar a la bolsa">
                            <font>
                               <Font name="SansSerif Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" styleClass="botonesLogin" text="Agregar a deseos">
+                        <Button fx:id="btn_AgregarADeseos" mnemonicParsing="false" onAction="#eventAction" styleClass="botonesLogin" text="Agregar a deseos">
                            <font>
                               <Font name="SansSerif Bold" size="13.0" />
                            </font>
@@ -142,22 +142,8 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0" visible="false">
+      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0">
          <children>
-            <HBox alignment="CENTER" layoutY="551.0" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
-               <children>
-                  <Text id="etiqueta" fx:id="btn_cerrarS" fill="#4bc3eb" onMouseClicked="#eventAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerrar Sesión">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text id="etiqueta" fx:id="btn_historial" fill="#4bc3eb" onMouseClicked="#eventAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Historial de compras">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
             <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="548.0" prefWidth="450.0" vbarPolicy="NEVER">
                <content>
                   <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="5.0" prefHeight="540.0" prefWidth="445.0" vgap="10.0">
@@ -180,7 +166,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="35.0" prefWidth="148.0">
                                  <children>
-                                    <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
+                                    <ComboBox fx:id="comb1" focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="5.0">
@@ -223,7 +209,7 @@
                            <children>
                               <ImageView fx:id="ima_C2" fitHeight="125.0" fitWidth="100.0" onMouseClicked="#mouseCliked" pickOnBounds="true">
                                  <image>
-                                    <Image url="@../Imagenes/Camiseta-blanca.png" />
+                                    <Image url="@../Imagenes/Camiseta-Blanca.png" />
                                  </image>
                               </ImageView>
                               <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
@@ -237,7 +223,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="35.0" prefWidth="148.0">
                                  <children>
-                                    <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
+                                    <ComboBox fx:id="comb2" focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="10.0" spacing="5.0">
@@ -294,7 +280,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="35.0" prefWidth="10.0">
                                  <children>
-                                    <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
+                                    <ComboBox fx:id="comb3" focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="10.0" spacing="5.0">
@@ -351,7 +337,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="35.0" prefWidth="10.0">
                                  <children>
-                                    <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
+                                    <ComboBox fx:id="comb4" focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="10.0" spacing="5.0">
@@ -394,7 +380,7 @@
                            <children>
                               <ImageView fx:id="ima_C5" fitHeight="125.0" fitWidth="100.0" onMouseClicked="#mouseCliked" pickOnBounds="true">
                                  <image>
-                                    <Image url="@../Imagenes/Camiseta-Negra.png" />
+                                    <Image url="@../Imagenes/Camiseta-Turqui.png" />
                                  </image>
                               </ImageView>
                               <HBox alignment="CENTER" prefHeight="20.0" prefWidth="10.0">
@@ -408,7 +394,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="35.0" prefWidth="10.0">
                                  <children>
-                                    <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
+                                    <ComboBox fx:id="comb5" focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="10.0" spacing="5.0">
@@ -465,7 +451,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="35.0" prefWidth="10.0">
                                  <children>
-                                    <ComboBox focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
+                                    <ComboBox fx:id="comb6" focusTraversable="false" prefHeight="25.0" prefWidth="100.0" promptText="TALLA" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="10.0" spacing="5.0">
@@ -511,6 +497,38 @@
                   </FlowPane>
                </content>
             </ScrollPane>
+            <HBox alignment="CENTER" layoutY="551.0" prefHeight="50.0" prefWidth="450.0" stylesheets="@../Css/Estilos.css">
+               <children>
+                  <Text id="etiqueta" fx:id="btn_cerrarS" fill="#4bc3eb" onMouseClicked="#mouseEvent" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerrar Sesión">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtIdUser" fill="WHITESMOKE" strokeType="OUTSIDE" strokeWidth="0.0" text="0000000000" />
+                  <Text id="etiqueta" fx:id="btn_historial" fill="#4bc3eb" onMouseClicked="#mouseEvent" strokeType="OUTSIDE" strokeWidth="0.0" text="Historial de compras">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="117.0" spacing="10.0">
+                     <children>
+                        <ImageView fx:id="btnFav4" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/Icon-Fav.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="btnBolsa4" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/Icon-bag.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
          </children>
       </Pane>
       <Pane fx:id="panel_bolsa" prefHeight="600.0" prefWidth="450.0" visible="false">
@@ -526,9 +544,9 @@
             </HBox>
             <ScrollPane hbarPolicy="NEVER" layoutY="50.0" prefHeight="500.0" prefWidth="450.0" vbarPolicy="NEVER">
                <content>
-                  <VBox prefHeight="550.0" prefWidth="450.0" spacing="10.0" stylesheets="@../Css/Estilos.css">
+                  <FlowPane fx:id="flowBolsa" alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="650.0" prefWidth="450.0" vgap="10.0">
                      <children>
-                        <HBox fx:id="B_Rosada" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Rosa" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -618,11 +636,8 @@
                                  </image>
                               </ImageView>
                            </children>
-                           <VBox.margin>
-                              <Insets left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
                         </HBox>
-                        <HBox fx:id="B_Blanca" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Blanca" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -712,11 +727,8 @@
                                  </image>
                               </ImageView>
                            </children>
-                           <VBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </VBox.margin>
                         </HBox>
-                        <HBox fx:id="B_Verde" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Verde" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -806,11 +818,8 @@
                                  </image>
                               </ImageView>
                            </children>
-                           <VBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </VBox.margin>
                         </HBox>
-                        <HBox fx:id="B_Roja" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Roja" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -901,7 +910,7 @@
                               </ImageView>
                            </children>
                         </HBox>
-                        <HBox fx:id="B_Gris" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="B_Gris" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -993,7 +1002,10 @@
                            </children>
                         </HBox>
                      </children>
-                  </VBox>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </FlowPane>
                </content>
             </ScrollPane>
             <HBox alignment="CENTER_LEFT" layoutY="550.0" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
@@ -1027,7 +1039,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0">
+      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0" visible="false">
          <children>
             <HBox id="fondoTitulo" alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -1040,9 +1052,9 @@
             </HBox>
             <ScrollPane hbarPolicy="NEVER" layoutY="50.0" prefHeight="500.0" prefWidth="450.0" stylesheets="@../Css/Estilos.css" vbarPolicy="NEVER">
                <content>
-                  <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="650.0" prefWidth="450.0" vgap="5.0">
+                  <FlowPane fx:id="flowLD" alignment="TOP_CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="650.0" prefWidth="450.0" vgap="5.0">
                      <children>
-                        <HBox fx:id="LD_Gris" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Gris" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="65.0" pickOnBounds="true">
                                  <image>
@@ -1098,7 +1110,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gris">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -1129,11 +1141,11 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox fx:id="LD_Turqui" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Turqui" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="70.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="@../Imagenes/Camiseta-Negra.png" />
+                                    <Image url="@../Imagenes/Camiseta-Turqui.png" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="20.0" />
@@ -1185,7 +1197,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Turquí">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -1216,7 +1228,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox fx:id="LD_Rojo" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Rojo" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1272,7 +1284,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rojo">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -1303,7 +1315,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox fx:id="LD_Rosada" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Rosada" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1359,7 +1371,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rosa">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -1390,7 +1402,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox fx:id="LD_Verde" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Verde" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1446,7 +1458,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Verde">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -1477,11 +1489,11 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox fx:id="LD_Blanca" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa" visible="false">
+                        <HBox fx:id="LD_Blanca" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="65.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="@../Imagenes/Camiseta-blanca.png" />
+                                    <Image url="@../Imagenes/Camiseta-Blanca.png" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="20.0" />
@@ -1533,7 +1545,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Blanca">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
