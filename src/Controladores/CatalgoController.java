@@ -1,10 +1,14 @@
 package Controladores;
 
 import Modelos.Gestor;  
+import Modelos.NodoCamiseta;
 import Modelos.PilaCamisetas;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -13,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -284,7 +289,8 @@ public class CatalgoController implements Initializable {
                 panel_bolsa.setVisible(true);
                 panel_catalogo.setVisible(false);
                 panel_deseos.setVisible(false);
-                panel_detalles.setVisible(false);                
+                panel_detalles.setVisible(false);  
+                mostrarCamisetasB();
             }
         } else if (event.getSource() == btnFav || event.getSource() == btnFav2 || event.getSource() == btnFav3 || event.getSource() == btnFav4) {
             if (!panel_deseos.isVisible()) {
@@ -298,5 +304,43 @@ public class CatalgoController implements Initializable {
 
     @FXML
     private void eventAction(ActionEvent event) {
+    }
+    
+    public void mostrarCamisetasB() {
+        try {
+            flowBolsa.getChildren().clear();
+            flowBolsa.getChildren().addAll(respaldoBolsa);
+
+            int idPropietario = Integer.parseInt(txtIdUser.getText());
+
+            NodoCamiseta camiseta1 = pila.getCamiseta(idPropietario);
+
+            if (camiseta1 == null) {
+
+                System.out.println("No se encontró ninguna camiseta para el usuario: " + txtIdUser.getText());
+                return;
+            }
+
+            List<Pane> camisetasAagregar = new ArrayList<>();
+
+            if (!flowBolsa.getChildren().isEmpty()) {
+                Stack<NodoCamiseta> pilaB = pila.getCamisetas(camiseta1.getIdPropietario());
+
+                for (NodoCamiseta camiseta : pilaB) {
+                    for (Node node : flowBolsa.getChildren()) {
+                        Pane newPane = (Pane) node;
+                        String color = camiseta.getColor();
+                        if (newPane.getId().equals("B_" + color)) {
+                            camisetasAagregar.add(newPane);
+                        }
+                    }
+                }
+
+                flowBolsa.getChildren().clear();
+                flowBolsa.getChildren().addAll(camisetasAagregar);
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Se produjo un error: " + e.getMessage());
+        }
     }
 }
