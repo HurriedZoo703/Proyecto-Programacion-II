@@ -97,11 +97,11 @@ public class RegistroController implements Initializable {
 
                             int id = Integer.parseInt(txtIdentficacion.getText());
                             NodoCamiseta c1 = new NodoCamiseta(id, "Gris", "/Imagenes/Camiseta-Gris.png");
-                            NodoCamiseta c2 = new NodoCamiseta(id, "Negra", "/Imagenes/Camiseta-Negra.png");
+                            NodoCamiseta c2 = new NodoCamiseta(id, "Turqui", "/Imagenes/Camiseta-Turqui.png");
                             NodoCamiseta c3 = new NodoCamiseta(id, "Roja", "/Imagenes/Camiseta-Roja.png");
                             NodoCamiseta c4 = new NodoCamiseta(id, "Rosa", "/Imagenes/Camiseta-Rosa.png");
                             NodoCamiseta c5 = new NodoCamiseta(id, "Verde", "/Imagenes/Camiseta-Verde.png");
-                            NodoCamiseta c6 = new NodoCamiseta(id, "Blanca", "/Imagenes/Camiseta-blanca.png");
+                            NodoCamiseta c6 = new NodoCamiseta(id, "Blanca", "/Imagenes/Camiseta-Blanca.png");
 
                             lista.agregarUsuario(txtNombre, txtIdentficacion, txtCell, txtGmail, txtPassword);
                             lista.guardarUsuariosEnArchivoTXT(lista);

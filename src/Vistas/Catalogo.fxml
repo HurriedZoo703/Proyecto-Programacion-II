@@ -142,7 +142,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0">
+      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0" visible="false">
          <children>
             <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="548.0" prefWidth="450.0" vbarPolicy="NEVER">
                <content>
@@ -531,7 +531,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_bolsa" prefHeight="600.0" prefWidth="450.0" visible="false">
+      <Pane fx:id="panel_bolsa" prefHeight="600.0" prefWidth="450.0">
          <children>
             <HBox id="fondoTitulo" alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -602,7 +602,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rosa">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -614,7 +614,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="aum1" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="50.0" right="20.0" />
                                  </HBox.margin>
@@ -622,12 +622,12 @@
                                     <Image url="@../Imagenes/Icon-add.png" />
                                  </image>
                               </ImageView>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                              <Text fx:id="cont1" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                  <font>
                                     <Font name="SansSerif Bold" size="40.0" />
                                  </font>
                               </Text>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="dec1" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
@@ -641,7 +641,7 @@
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Imagenes/Camiseta-blanca.png" />
+                                    <Image url="@../Imagenes/Camiseta-Blanca.png" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="20.0" />
@@ -693,7 +693,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Blanca">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -705,7 +705,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="aum2" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="50.0" right="20.0" />
                                  </HBox.margin>
@@ -713,12 +713,12 @@
                                     <Image url="@../Imagenes/Icon-add.png" />
                                  </image>
                               </ImageView>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                              <Text fx:id="cont2" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                  <font>
                                     <Font name="SansSerif Bold" size="40.0" />
                                  </font>
                               </Text>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="dec2" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
@@ -784,7 +784,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Verde">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -796,7 +796,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="aum3" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="50.0" right="20.0" />
                                  </HBox.margin>
@@ -804,12 +804,12 @@
                                     <Image url="@../Imagenes/Icon-add.png" />
                                  </image>
                               </ImageView>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                              <Text fx:id="cont3" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                  <font>
                                     <Font name="SansSerif Bold" size="40.0" />
                                  </font>
                               </Text>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="dec3" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
@@ -875,7 +875,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Roja">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -887,7 +887,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="aum4" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="50.0" right="20.0" />
                                  </HBox.margin>
@@ -895,12 +895,12 @@
                                     <Image url="@../Imagenes/Icon-add.png" />
                                  </image>
                               </ImageView>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                              <Text fx:id="cont4" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                  <font>
                                     <Font name="SansSerif Bold" size="40.0" />
                                  </font>
                               </Text>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="dec4" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
@@ -966,7 +966,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gris">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -978,7 +978,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="aum5" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="50.0" right="20.0" />
                                  </HBox.margin>
@@ -986,12 +986,103 @@
                                     <Image url="@../Imagenes/Icon-add.png" />
                                  </image>
                               </ImageView>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                              <Text fx:id="cont5" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                  <font>
                                     <Font name="SansSerif Bold" size="40.0" />
                                  </font>
                               </Text>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="dec5" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Imagenes/Icon-remove.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="B_Turqui" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="container_bolsa">
+                           <children>
+                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/Camiseta-Turqui.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="L">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COP:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$45,000">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="98.0" spacing="20.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Turqui">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <ImageView fx:id="aum6" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="50.0" right="20.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Imagenes/Icon-add.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="cont6" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="40.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fx:id="dec6" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#toggleCant" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
@@ -1228,7 +1319,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox fx:id="LD_Rojo" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
+                        <HBox fx:id="LD_Roja" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1315,7 +1406,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox fx:id="LD_Rosada" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
+                        <HBox fx:id="LD_Rosa" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="440.0" styleClass="container_bolsa">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

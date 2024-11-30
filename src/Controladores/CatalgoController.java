@@ -1,6 +1,6 @@
 package Controladores;
 
-import Modelos.Gestor;  
+import Modelos.Gestor;
 import Modelos.NodoCamiseta;
 import Modelos.PilaCamisetas;
 import java.io.IOException;
@@ -82,6 +82,10 @@ public class CatalgoController implements Initializable {
     @FXML
     private HBox B_Gris;
     @FXML
+    private HBox B_Turqui;
+    @FXML
+    private HBox B_Rosa;
+    @FXML
     private ImageView btnHome2;
     @FXML
     private ImageView btnFav2;
@@ -92,13 +96,13 @@ public class CatalgoController implements Initializable {
     @FXML
     private HBox LD_Turqui;
     @FXML
-    private HBox LD_Rojo;
-    @FXML
-    private HBox LD_Rosada;
-    @FXML
     private HBox LD_Verde;
     @FXML
     private HBox LD_Blanca;
+    @FXML
+    private HBox LD_Roja;
+    @FXML
+    private HBox LD_Rosa;
     @FXML
     private ImageView btnHome3;
     @FXML
@@ -130,8 +134,6 @@ public class CatalgoController implements Initializable {
     @FXML
     private ComboBox<String> comb6;
     @FXML
-    private HBox B_Rosa;
-    @FXML
     private ImageView imaDG;
     @FXML
     private Button btn_AgregarABolsa;
@@ -139,6 +141,42 @@ public class CatalgoController implements Initializable {
     private Button btn_AgregarADeseos;
     @FXML
     private Text txtColorDG;
+    @FXML
+    private Text cont1;
+    @FXML
+    private Text cont2;
+    @FXML
+    private Text cont3;
+    @FXML
+    private Text cont4;
+    @FXML
+    private Text cont5;
+    @FXML
+    private Text cont6;
+    @FXML
+    private ImageView aum1;
+    @FXML
+    private ImageView dec1;
+    @FXML
+    private ImageView aum2;
+    @FXML
+    private ImageView dec2;
+    @FXML
+    private ImageView aum3;
+    @FXML
+    private ImageView dec3;
+    @FXML
+    private ImageView aum4;
+    @FXML
+    private ImageView dec4;
+    @FXML
+    private ImageView aum5;
+    @FXML
+    private ImageView dec5;
+    @FXML
+    private ImageView aum6;
+    @FXML
+    private ImageView dec6;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -289,7 +327,7 @@ public class CatalgoController implements Initializable {
                 panel_bolsa.setVisible(true);
                 panel_catalogo.setVisible(false);
                 panel_deseos.setVisible(false);
-                panel_detalles.setVisible(false);  
+                panel_detalles.setVisible(false);
                 mostrarCamisetasB();
             }
         } else if (event.getSource() == btnFav || event.getSource() == btnFav2 || event.getSource() == btnFav3 || event.getSource() == btnFav4) {
@@ -298,6 +336,7 @@ public class CatalgoController implements Initializable {
                 panel_bolsa.setVisible(false);
                 panel_catalogo.setVisible(false);
                 panel_detalles.setVisible(false);
+                mostrarCamisetasLD();
             }
         }
     }
@@ -305,7 +344,7 @@ public class CatalgoController implements Initializable {
     @FXML
     private void eventAction(ActionEvent event) {
     }
-    
+
     public void mostrarCamisetasB() {
         try {
             flowBolsa.getChildren().clear();
@@ -321,17 +360,17 @@ public class CatalgoController implements Initializable {
                 return;
             }
 
-            List<Pane> camisetasAagregar = new ArrayList<>();
+            List<HBox> camisetasAagregar = new ArrayList<>();
 
             if (!flowBolsa.getChildren().isEmpty()) {
                 Stack<NodoCamiseta> pilaB = pila.getCamisetas(camiseta1.getIdPropietario());
 
                 for (NodoCamiseta camiseta : pilaB) {
                     for (Node node : flowBolsa.getChildren()) {
-                        Pane newPane = (Pane) node;
+                        HBox newHbox = (HBox) node;
                         String color = camiseta.getColor();
-                        if (newPane.getId().equals("B_" + color)) {
-                            camisetasAagregar.add(newPane);
+                        if (newHbox.getId().equals("B_" + color)) {
+                            camisetasAagregar.add(newHbox);
                         }
                     }
                 }
@@ -343,4 +382,43 @@ public class CatalgoController implements Initializable {
             System.out.println("Se produjo un error: " + e.getMessage());
         }
     }
+
+    public void mostrarCamisetasLD() {
+        try {
+            flowLD.getChildren().clear();
+            flowLD.getChildren().addAll(respaldoListaDeseos);
+
+            int idPropietario = Integer.parseInt(txtIdUser.getText());
+
+            NodoCamiseta camiseta1 = pila.getCamisetaLD(idPropietario);
+
+            if (camiseta1 == null) {
+
+                System.out.println("No se encontró ninguna camiseta para el usuario: " + txtIdUser.getText());
+                return;
+            }
+
+            List<HBox> camisetasAagregar = new ArrayList<>();
+
+            if (!flowLD.getChildren().isEmpty()) {
+                Stack<NodoCamiseta> pilaLD = pila.getCamisetasLD(camiseta1.getIdPropietario());
+
+                for (NodoCamiseta camiseta : pilaLD) {
+                    for (Node node : flowLD.getChildren()) {
+                        HBox newHBox = (HBox) node;
+                        String color = camiseta.getColor();
+                        if (newHBox.getId().equals("LD_" + color)) {
+                            camisetasAagregar.add(newHBox);
+                        }
+                    }
+                }
+
+                flowLD.getChildren().clear();
+                flowLD.getChildren().addAll(camisetasAagregar);
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Se produjo un error: " + e.getMessage());
+        }
+    }  
+
 }

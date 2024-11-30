@@ -288,7 +288,7 @@ public class PilaCamisetas {
 
                 NodoCamiseta camiseta = new NodoCamiseta(idPropietario, color, URL);
 
-                setPush(camiseta);
+                setPushLD(camiseta);
             }
 
         } catch (IOException e) {
