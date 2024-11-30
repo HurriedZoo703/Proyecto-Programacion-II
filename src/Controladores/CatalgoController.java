@@ -421,4 +421,93 @@ public class CatalgoController implements Initializable {
         }
     }  
 
+    @FXML
+    private void toggleCant(MouseEvent event) {
+
+        ImageView ima = (ImageView) event.getSource();
+
+        switch (ima.getParent().getId()) {
+            case "B_Rosa":
+                if (event.getSource() == aum1) {
+                    int dato = Integer.parseInt(cont1.getText()) + 1;
+                    cont1.setText("" + dato);
+                } else if (event.getSource() == dec1) {
+                    int dato = Integer.parseInt(cont1.getText()) - 1;
+                    if (dato >= 0) {
+                        cont1.setText("" + dato);
+                    } else {
+                        flowBolsa.getChildren().remove(B_Rosa);
+                    }
+                }
+                break;
+            case "B_Blanca":
+                if (event.getSource() == aum2) {
+                    int dato = Integer.parseInt(cont2.getText()) + 1;
+                    cont2.setText("" + dato);
+                } else if (event.getSource() == dec2) {
+                    int dato = Integer.parseInt(cont2.getText()) - 1;
+                    if (dato >= 0) {
+                        cont2.setText("" + dato);
+                    } else {
+                        flowBolsa.getChildren().remove(B_Blanca);
+                    }
+                }
+                break;
+            case "B_Verde":
+                if (event.getSource() == aum3) {
+                    int dato = Integer.parseInt(cont3.getText()) + 1;
+                    cont3.setText("" + dato);
+                } else if (event.getSource() == dec3) {
+                    int dato = Integer.parseInt(cont3.getText()) - 1;
+                    if (dato >= 0) {
+                        cont3.setText("" + dato);
+                    } else {
+                        flowBolsa.getChildren().remove(B_Verde);
+                    }
+                }
+                break;
+            case "B_Roja":
+                if (event.getSource() == aum4) {
+                    int dato = Integer.parseInt(cont4.getText()) + 1;
+                    cont4.setText("" + dato);
+                } else if (event.getSource() == dec4) {
+                    int dato = Integer.parseInt(cont4.getText()) - 1;
+                    if (dato >= 0) {
+                        cont4.setText("" + dato);
+                    } else {
+                        flowBolsa.getChildren().remove(B_Roja);
+                    }
+                }
+                break;
+            case "B_Gris":
+                if (event.getSource() == aum5) {
+                    int dato = Integer.parseInt(cont5.getText()) + 1;
+                    cont5.setText("" + dato);
+                } else if (event.getSource() == dec5) {
+                    int dato = Integer.parseInt(cont5.getText()) - 1;
+                    if (dato >= 0) {
+                        cont5.setText("" + dato);
+                    } else {
+                        flowBolsa.getChildren().remove(B_Gris);
+                    }
+                }
+                break;
+            case "B_Turqui":
+                if (event.getSource() == aum6) {
+                    int dato = Integer.parseInt(cont6.getText()) + 1;
+                    cont6.setText("" + dato);
+                } else if (event.getSource() == dec6) {
+                    int dato = Integer.parseInt(cont6.getText()) - 1;
+                    if (dato >= 0) {
+                        cont6.setText("" + dato);
+                    } else {
+                        flowBolsa.getChildren().remove(B_Turqui);
+                    }
+                }
+                break;
+
+            default:
+                throw new AssertionError();
+        }
+    }
 }
