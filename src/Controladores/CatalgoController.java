@@ -1,6 +1,6 @@
 package Controladores;
 
-import Modelos.Gestor;
+import Modelos.Gestor;  
 import Modelos.PilaCamisetas;
 import java.io.IOException;
 import java.net.URL;
@@ -15,9 +15,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -65,8 +69,6 @@ public class CatalgoController implements Initializable {
     @FXML
     private ImageView btnBolsa;
     @FXML
-    private HBox B_Rosada;
-    @FXML
     private HBox B_Blanca;
     @FXML
     private HBox B_Verde;
@@ -98,10 +100,62 @@ public class CatalgoController implements Initializable {
     private ImageView btnFav3;
     @FXML
     private ImageView btnBolsa3;
+    @FXML
+    private FlowPane flowBolsa;
+    @FXML
+    private FlowPane flowLD;
+    @FXML
+    public Text txtIdUser;
+    @FXML
+    private ComboBox<String> combDG;
+    @FXML
+    private ImageView btnFav4;
+    @FXML
+    private ImageView btnBolsa4;
+    @FXML
+    private ComboBox<String> comb1;
+    @FXML
+    private ComboBox<String> comb2;
+    @FXML
+    private ComboBox<String> comb3;
+    @FXML
+    private ComboBox<String> comb4;
+    @FXML
+    private ComboBox<String> comb5;
+    @FXML
+    private ComboBox<String> comb6;
+    @FXML
+    private HBox B_Rosa;
+    @FXML
+    private ImageView imaDG;
+    @FXML
+    private Button btn_AgregarABolsa;
+    @FXML
+    private Button btn_AgregarADeseos;
+    @FXML
+    private Text txtColorDG;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        String[] tallas = {"S", "M", "L", "XL"};
+        comb1.getItems().addAll(tallas);
+        comb2.getItems().addAll(tallas);
+        comb3.getItems().addAll(tallas);
+        comb4.getItems().addAll(tallas);
+        comb5.getItems().addAll(tallas);
+        comb6.getItems().addAll(tallas);
+        combDG.getItems().addAll(tallas);
 
+        respaldoBolsa = FXCollections.observableArrayList();
+        respaldoListaDeseos = FXCollections.observableArrayList();
+
+        flowBolsa.getChildren().stream().map(node -> (Pane) node).forEachOrdered(newPane -> {
+            respaldoBolsa.add(newPane);
+        });
+
+        flowLD.getChildren().stream().map(node -> (Pane) node).forEachOrdered(newPane -> {
+            respaldoListaDeseos.add(newPane);
+        });
     }
 
     public void closeWindow() {
@@ -124,7 +178,7 @@ public class CatalgoController implements Initializable {
     }
 
     @FXML
-    private void eventAction(MouseEvent event) {
+    private void mouseEvent(MouseEvent event) {
 
         if (event.getSource() == btn_cerrarS) {
 
@@ -141,15 +195,83 @@ public class CatalgoController implements Initializable {
     @FXML
     private void mouseCliked(MouseEvent event) {
 
-        if (event.getSource() == ima_C1) {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle("Aviso");
+        a.setContentText("Primero debe seleccionar una talla");
 
+        if (event.getSource() == ima_C1) {
+            if (comb1.getValue() != null) {
+                panel_catalogo.setVisible(false);
+                panel_detalles.setVisible(true);
+
+                Image ima = new Image(getClass().getResourceAsStream("/Imagenes/Camiseta-Gris.png"));
+                combDG.setValue(comb1.getValue());
+                imaDG.setImage(ima);
+                txtColorDG.setText("Gris");
+            } else {
+                a.showAndWait();
+            }
         } else if (event.getSource() == ima_C2) {
+            if (comb2.getValue() != null) {
+                panel_catalogo.setVisible(false);
+                panel_detalles.setVisible(true);
+
+                Image ima = new Image(getClass().getResourceAsStream("/Imagenes/Camiseta-Blanca.png"));
+                combDG.setValue(comb2.getValue());
+                imaDG.setImage(ima);
+                txtColorDG.setText("Blanca");
+            } else {
+                a.showAndWait();
+            }
+
         } else if (event.getSource() == ima_C3) {
+            if (comb3.getValue() != null) {
+                panel_catalogo.setVisible(false);
+                panel_detalles.setVisible(true);
+
+                Image ima = new Image(getClass().getResourceAsStream("/Imagenes/Camiseta-Roja.png"));
+                combDG.setValue(comb3.getValue());
+                imaDG.setImage(ima);
+                txtColorDG.setText("Roja");
+            } else {
+                a.showAndWait();
+            }
         } else if (event.getSource() == ima_C4) {
-            panel_catalogo.setVisible(false);
-            panel_detalles.setVisible(true);
+            if (comb4.getValue() != null) {
+                panel_catalogo.setVisible(false);
+                panel_detalles.setVisible(true);
+
+                Image ima = new Image(getClass().getResourceAsStream("/Imagenes/Camiseta-Rosa.png"));
+                combDG.setValue(comb4.getValue());
+                imaDG.setImage(ima);
+                txtColorDG.setText("Rosa");
+            } else {
+                a.showAndWait();
+            }
         } else if (event.getSource() == ima_C5) {
+            if (comb5.getValue() != null) {
+                panel_catalogo.setVisible(false);
+                panel_detalles.setVisible(true);
+
+                Image ima = new Image(getClass().getResourceAsStream("/Imagenes/Camiseta-Turqui.png"));
+                combDG.setValue(comb5.getValue());
+                imaDG.setImage(ima);
+                txtColorDG.setText("Azul Turqui");
+            } else {
+                a.showAndWait();
+            }
         } else if (event.getSource() == ima_C6) {
+            if (comb6.getValue() != null) {
+                panel_catalogo.setVisible(false);
+                panel_detalles.setVisible(true);
+
+                Image ima = new Image(getClass().getResourceAsStream("/Imagenes/Camiseta-Verde.png"));
+                combDG.setValue(comb6.getValue());
+                imaDG.setImage(ima);
+                txtColorDG.setText("Verde");
+            } else {
+                a.showAndWait();
+            }
         } else if (event.getSource() == btnHome || event.getSource() == btnHome2 || event.getSource() == btnHome3) {
             if (!panel_catalogo.isVisible()) {
                 panel_catalogo.setVisible(true);
@@ -157,14 +279,14 @@ public class CatalgoController implements Initializable {
                 panel_deseos.setVisible(false);
                 panel_detalles.setVisible(false);
             }
-        } else if (event.getSource() == btnBolsa || event.getSource() == btnBolsa2 || event.getSource() == btnBolsa3) {
+        } else if (event.getSource() == btnBolsa || event.getSource() == btnBolsa2 || event.getSource() == btnBolsa3 || event.getSource() == btnBolsa4) {
             if (!panel_bolsa.isVisible()) {
                 panel_bolsa.setVisible(true);
                 panel_catalogo.setVisible(false);
                 panel_deseos.setVisible(false);
-                panel_detalles.setVisible(false);
+                panel_detalles.setVisible(false);                
             }
-        } else if (event.getSource() == btnFav || event.getSource() == btnFav2 || event.getSource() == btnFav3) {
+        } else if (event.getSource() == btnFav || event.getSource() == btnFav2 || event.getSource() == btnFav3 || event.getSource() == btnFav4) {
             if (!panel_deseos.isVisible()) {
                 panel_deseos.setVisible(true);
                 panel_bolsa.setVisible(false);
