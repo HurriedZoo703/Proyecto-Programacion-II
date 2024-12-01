@@ -180,17 +180,17 @@ public class PilaCamisetas {
         }
     }
 
-    public void eliminarLD(Stack<NodoCamiseta> pila, int id) {
+    public void eliminarLD(int id, String color) {
         Stack<NodoCamiseta> temp = new Stack<>();
 
-        while (!pila.isEmpty()) {
-            NodoCamiseta juego = pila.pop();
-            if (juego.getIdPropietario() == id) {
-                temp.push(juego);
+        while (!pilaLD.isEmpty()) {
+            NodoCamiseta camiseta = pilaLD.pop();
+            if (camiseta.getIdPropietario() == id && camiseta.getColor().equals(color)) {
+                temp.push(camiseta);
             }
         }
         while (!temp.isEmpty()) {
-            pila.push(temp.pop());
+            pilaLD.push(temp.pop());
         }
     }
 
