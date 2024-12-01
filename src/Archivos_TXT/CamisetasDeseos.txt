@@ -1,6 +1,0 @@
-1063673532, Gris, /Imagenes/Camiseta-Gris.png
-1063673532, Turqui, /Imagenes/Camiseta-Turqui.png
-1063673532, Roja, /Imagenes/Camiseta-Roja.png
-1063673532, Rosa, /Imagenes/Camiseta-Rosa.png
-1063673532, Verde, /Imagenes/Camiseta-Verde.png
-1063673532, Blanca, /Imagenes/Camiseta-Blanca.png

@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -197,6 +198,8 @@ public class CatalgoController implements Initializable {
     private Button btnPasarB6;
     @FXML
     private Button btnEliminarLD6;
+    @FXML
+    private Label NO_HAY;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -347,6 +350,7 @@ public class CatalgoController implements Initializable {
                 panel_bolsa.setVisible(false);
                 panel_deseos.setVisible(false);
                 panel_detalles.setVisible(false);
+                NO_HAY.setVisible(false);
             }
         } else if (event.getSource() == btnBolsa || event.getSource() == btnBolsa2 || event.getSource() == btnBolsa3 || event.getSource() == btnBolsa4) {
             if (!panel_bolsa.isVisible()) {
@@ -427,6 +431,11 @@ public class CatalgoController implements Initializable {
                 pila.guardarCamisetas(pila.getPilaB());
                 a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                 a.showAndWait();
+                flowLD.getChildren().remove(LD_Gris);
+                pila.eliminarLD(id, "Gris");
+                pila.guardarCamisetasLD(pila.getPilaLD());
+                pila.cargarCamisetasLD();
+                mostrarCamisetasLD();
             } else {
                 if (pilaB.indexOf(c) != -1) {
                     a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
@@ -437,6 +446,11 @@ public class CatalgoController implements Initializable {
                     pila.guardarCamisetas(pila.getPilaB());
                     a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                     a.showAndWait();
+                    flowLD.getChildren().remove(LD_Gris);
+                    pila.eliminarLD(id, "Gris");
+                    pila.guardarCamisetasLD(pila.getPilaLD());
+                    pila.cargarCamisetasLD();
+                    mostrarCamisetasLD();
                 }
             }
 
@@ -449,6 +463,11 @@ public class CatalgoController implements Initializable {
                 pila.guardarCamisetas(pila.getPilaB());
                 a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                 a.showAndWait();
+                flowLD.getChildren().remove(LD_Turqui);
+                pila.eliminarLD(id, "Turqui");
+                pila.guardarCamisetasLD(pila.getPilaLD());
+                pila.cargarCamisetasLD();
+                mostrarCamisetasLD();
             } else {
                 if (pilaB.indexOf(c) != -1) {
                     a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
@@ -459,6 +478,11 @@ public class CatalgoController implements Initializable {
                     pila.guardarCamisetas(pila.getPilaB());
                     a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                     a.showAndWait();
+                    flowLD.getChildren().remove(LD_Turqui);
+                    pila.eliminarLD(id, "Turqui");
+                    pila.guardarCamisetasLD(pila.getPilaLD());
+                    pila.cargarCamisetasLD();
+                    mostrarCamisetasLD();
                 }
             }
         } else if (event.getSource() == btnPasarB3) {
@@ -470,6 +494,11 @@ public class CatalgoController implements Initializable {
                 pila.guardarCamisetas(pila.getPilaB());
                 a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                 a.showAndWait();
+                flowLD.getChildren().remove(LD_Roja);
+                pila.eliminarLD(id, "Roja");
+                pila.guardarCamisetasLD(pila.getPilaLD());
+                pila.cargarCamisetasLD();
+                mostrarCamisetasLD();
             } else {
                 if (pilaB.indexOf(c) != -1) {
                     a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
@@ -480,6 +509,11 @@ public class CatalgoController implements Initializable {
                     pila.guardarCamisetas(pila.getPilaB());
                     a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                     a.showAndWait();
+                    flowLD.getChildren().remove(LD_Roja);
+                    pila.eliminarLD(id, "Roja");
+                    pila.guardarCamisetasLD(pila.getPilaLD());
+                    pila.cargarCamisetasLD();
+                    mostrarCamisetasLD();
                 }
             }
         } else if (event.getSource() == btnPasarB4) {
@@ -491,6 +525,11 @@ public class CatalgoController implements Initializable {
                 pila.guardarCamisetas(pila.getPilaB());
                 a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                 a.showAndWait();
+                flowLD.getChildren().remove(LD_Rosa);
+                pila.eliminarLD(id, "Rosa");
+                pila.guardarCamisetasLD(pila.getPilaLD());
+                pila.cargarCamisetasLD();
+                mostrarCamisetasLD();
             } else {
                 if (pilaB.indexOf(c) != -1) {
                     a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
@@ -501,6 +540,11 @@ public class CatalgoController implements Initializable {
                     pila.guardarCamisetas(pila.getPilaB());
                     a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                     a.showAndWait();
+                    flowLD.getChildren().remove(LD_Rosa);
+                    pila.eliminarLD(id, "Rosa");
+                    pila.guardarCamisetasLD(pila.getPilaLD());
+                    pila.cargarCamisetasLD();
+                    mostrarCamisetasLD();
                 }
             }
         } else if (event.getSource() == btnPasarB5) {
@@ -512,6 +556,11 @@ public class CatalgoController implements Initializable {
                 pila.guardarCamisetas(pila.getPilaB());
                 a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                 a.showAndWait();
+                flowLD.getChildren().remove(LD_Verde);
+                pila.eliminarLD(id, "Verde");
+                pila.guardarCamisetasLD(pila.getPilaLD());
+                pila.cargarCamisetasLD();
+                mostrarCamisetasLD();
             } else {
                 if (pilaB.indexOf(c) != -1) {
                     a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
@@ -522,6 +571,11 @@ public class CatalgoController implements Initializable {
                     pila.guardarCamisetas(pila.getPilaB());
                     a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                     a.showAndWait();
+                    flowLD.getChildren().remove(LD_Verde);
+                    pila.eliminarLD(id, "Verde");
+                    pila.guardarCamisetasLD(pila.getPilaLD());
+                    pila.cargarCamisetasLD();
+                    mostrarCamisetasLD();
                 }
             }
         } else if (event.getSource() == btnPasarB6) {
@@ -533,6 +587,11 @@ public class CatalgoController implements Initializable {
                 pila.guardarCamisetas(pila.getPilaB());
                 a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                 a.showAndWait();
+                flowLD.getChildren().remove(LD_Blanca);
+                pila.eliminarLD(id, "Blanca");
+                pila.guardarCamisetasLD(pila.getPilaLD());
+                pila.cargarCamisetasLD();
+                mostrarCamisetasLD();
             } else {
                 if (pilaB.indexOf(c) != -1) {
                     a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
@@ -543,32 +602,50 @@ public class CatalgoController implements Initializable {
                     pila.guardarCamisetas(pila.getPilaB());
                     a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
                     a.showAndWait();
+                    flowLD.getChildren().remove(LD_Blanca);
+                    pila.eliminarLD(id, "Blanca");
+                    pila.guardarCamisetasLD(pila.getPilaLD());
+                    pila.cargarCamisetasLD();
+                    mostrarCamisetasLD();
+
                 }
             }
         } else if (event.getSource() == btnEliminarLD1) {
             flowLD.getChildren().remove(LD_Gris);
             pila.eliminarLD(id, "Gris");
             pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.cargarCamisetasLD();
+            mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD2) {
             flowLD.getChildren().remove(LD_Turqui);
             pila.eliminarLD(id, "Turqui");
             pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.cargarCamisetasLD();
+            mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD3) {
             flowLD.getChildren().remove(LD_Roja);
             pila.eliminarLD(id, "Roja");
             pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.cargarCamisetasLD();
+            mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD4) {
             flowLD.getChildren().remove(LD_Rosa);
             pila.eliminarLD(id, "Rosa");
             pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.cargarCamisetasLD();
+            mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD5) {
             flowLD.getChildren().remove(LD_Verde);
             pila.eliminarLD(id, "Verde");
             pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.cargarCamisetasLD();
+            mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD6) {
             flowLD.getChildren().remove(LD_Blanca);
             pila.eliminarLD(id, "Blanca");
             pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.cargarCamisetasLD();
+            mostrarCamisetasLD();
         }
     }
 
@@ -583,7 +660,8 @@ public class CatalgoController implements Initializable {
 
             if (camiseta1 == null) {
 
-                System.out.println("No se encontró ninguna camiseta para el usuario: " + txtIdUser.getText());
+                flowBolsa.getChildren().clear();
+                NO_HAY.setVisible(true);
                 return;
             }
 
@@ -602,8 +680,14 @@ public class CatalgoController implements Initializable {
                     }
                 }
 
-                flowBolsa.getChildren().clear();
-                flowBolsa.getChildren().addAll(camisetasAagregar);
+                if (camisetasAagregar.isEmpty()) {
+                    flowBolsa.getChildren().clear();
+                    NO_HAY.setVisible(true);
+                } else {
+                    flowBolsa.getChildren().clear();
+                    flowBolsa.getChildren().addAll(camisetasAagregar);
+                    NO_HAY.setVisible(false);
+                }
             }
         } catch (NullPointerException e) {
             System.out.println("Se produjo un error: " + e.getMessage());
@@ -621,7 +705,8 @@ public class CatalgoController implements Initializable {
 
             if (camiseta1 == null) {
 
-                System.out.println("No se encontró ninguna camiseta para el usuario: " + txtIdUser.getText());
+                flowLD.getChildren().clear();
+                NO_HAY.setVisible(true);
                 return;
             }
 
@@ -640,8 +725,14 @@ public class CatalgoController implements Initializable {
                     }
                 }
 
-                flowLD.getChildren().clear();
-                flowLD.getChildren().addAll(camisetasAagregar);
+                if (camisetasAagregar.isEmpty()) {
+                    flowLD.getChildren().clear();
+                    NO_HAY.setVisible(true);
+                } else {
+                    flowLD.getChildren().clear();
+                    flowLD.getChildren().addAll(camisetasAagregar);
+                    NO_HAY.setVisible(false);
+                }
             }
         } catch (NullPointerException e) {
             System.out.println("Se produjo un error: " + e.getMessage());
@@ -650,7 +741,7 @@ public class CatalgoController implements Initializable {
 
     @FXML
     private void toggleCant(MouseEvent event) {
-
+        int id = Integer.parseInt(txtIdUser.getText());
         ImageView ima = (ImageView) event.getSource();
 
         switch (ima.getParent().getId()) {
@@ -664,6 +755,9 @@ public class CatalgoController implements Initializable {
                         cont1.setText("" + dato);
                     } else {
                         flowBolsa.getChildren().remove(B_Rosa);
+                        pila.eliminar(id, "Rosa");
+                        pila.guardarCamisetas(pila.getPilaB());
+                        pila.cargarCamisetas();
                     }
                 }
                 break;
@@ -677,6 +771,9 @@ public class CatalgoController implements Initializable {
                         cont2.setText("" + dato);
                     } else {
                         flowBolsa.getChildren().remove(B_Blanca);
+                        pila.eliminar(id, "Blanca");
+                        pila.guardarCamisetas(pila.getPilaB());
+                        pila.cargarCamisetas();
                     }
                 }
                 break;
@@ -690,6 +787,9 @@ public class CatalgoController implements Initializable {
                         cont3.setText("" + dato);
                     } else {
                         flowBolsa.getChildren().remove(B_Verde);
+                        pila.eliminar(id, "Verde");
+                        pila.guardarCamisetas(pila.getPilaB());
+                        pila.cargarCamisetas();
                     }
                 }
                 break;
@@ -703,6 +803,9 @@ public class CatalgoController implements Initializable {
                         cont4.setText("" + dato);
                     } else {
                         flowBolsa.getChildren().remove(B_Roja);
+                        pila.eliminar(id, "Roja");
+                        pila.guardarCamisetas(pila.getPilaB());
+                        pila.cargarCamisetas();
                     }
                 }
                 break;
@@ -716,6 +819,9 @@ public class CatalgoController implements Initializable {
                         cont5.setText("" + dato);
                     } else {
                         flowBolsa.getChildren().remove(B_Gris);
+                        pila.eliminar(id, "Gris");
+                        pila.guardarCamisetas(pila.getPilaB());
+                        pila.cargarCamisetas();
                     }
                 }
                 break;
@@ -729,6 +835,9 @@ public class CatalgoController implements Initializable {
                         cont6.setText("" + dato);
                     } else {
                         flowBolsa.getChildren().remove(B_Turqui);
+                        pila.eliminar(id, "Turqui");
+                        pila.guardarCamisetas(pila.getPilaB());
+                        pila.cargarCamisetas();
                     }
                 }
                 break;

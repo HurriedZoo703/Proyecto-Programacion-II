@@ -102,7 +102,7 @@ public class PilaCamisetas {
 
         while (!pilaB.isEmpty()) {
             NodoCamiseta camiseta = pilaB.pop();
-            if (camiseta.getIdPropietario() == id && camiseta.getColor().equals(color)) {
+            if (!(camiseta.getIdPropietario() == id && camiseta.getColor().equals(color))) {
                 temp.push(camiseta);
             }
         }
@@ -185,7 +185,7 @@ public class PilaCamisetas {
 
         while (!pilaLD.isEmpty()) {
             NodoCamiseta camiseta = pilaLD.pop();
-            if (camiseta.getIdPropietario() == id && camiseta.getColor().equals(color)) {
+            if (!(camiseta.getIdPropietario() == id && camiseta.getColor().equals(color))) {
                 temp.push(camiseta);
             }
         }
@@ -209,7 +209,7 @@ public class PilaCamisetas {
                 writer.write(camiseta.getURL_ima());
                 writer.newLine();
             }
-            
+
         } catch (IOException e) {
             System.out.println("Error al guardar los datos en: CamisetasBolsa.txt: " + e.getMessage());
         }
@@ -244,7 +244,7 @@ public class PilaCamisetas {
             System.out.println("Error al cargar los datos desde CamisetasBolsa.txt: " + e.getMessage());
         }
     }
-    
+
     public void guardarCamisetasLD(Stack<NodoCamiseta> pila) {
 
         String direccion = System.getProperty("user.dir") + "\\src\\Archivos_TXT\\CamisetasDeseos.txt";
@@ -260,7 +260,7 @@ public class PilaCamisetas {
                 writer.write(camiseta.getURL_ima());
                 writer.newLine();
             }
-            
+
         } catch (IOException e) {
             System.out.println("Error al guardar los datos en: CamisetasDeseos.txt: " + e.getMessage());
         }
