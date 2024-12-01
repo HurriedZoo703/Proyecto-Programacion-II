@@ -142,7 +142,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0" visible="false">
+      <Pane fx:id="panel_catalogo" prefHeight="600.0" prefWidth="450.0">
          <children>
             <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="548.0" prefWidth="450.0" vbarPolicy="NEVER">
                <content>
@@ -1130,7 +1130,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0">
+      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0" visible="false">
          <children>
             <HBox id="fondoTitulo" alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
