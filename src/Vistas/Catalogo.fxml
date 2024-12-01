@@ -531,7 +531,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_bolsa" prefHeight="600.0" prefWidth="450.0">
+      <Pane fx:id="panel_bolsa" prefHeight="600.0" prefWidth="450.0" visible="false">
          <children>
             <HBox id="fondoTitulo" alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -1130,7 +1130,7 @@
             </HBox>
          </children>
       </Pane>
-      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0" visible="false">
+      <Pane fx:id="panel_deseos" prefHeight="600.0" prefWidth="450.0">
          <children>
             <HBox id="fondoTitulo" alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="150.0" stylesheets="@../Css/Estilos.css">
                <children>
@@ -1218,12 +1218,12 @@
                                     <Insets left="80.0" />
                                  </HBox.margin>
                                  <children>
-                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                    <Button id="btnPasarB" fx:id="btnPasarB1" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD1" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
@@ -1305,12 +1305,12 @@
                                     <Insets left="80.0" />
                                  </HBox.margin>
                                  <children>
-                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                    <Button id="btnPasarB" fx:id="btnPasarB2" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD2" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
@@ -1392,12 +1392,12 @@
                                     <Insets left="80.0" />
                                  </HBox.margin>
                                  <children>
-                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                    <Button id="btnPasarB" fx:id="btnPasarB3" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD3" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
@@ -1479,12 +1479,12 @@
                                     <Insets left="80.0" />
                                  </HBox.margin>
                                  <children>
-                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                    <Button id="btnPasarB" fx:id="btnPasarB4" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD4" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
@@ -1566,12 +1566,12 @@
                                     <Insets left="80.0" />
                                  </HBox.margin>
                                  <children>
-                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                    <Button id="btnPasarB" fx:id="btnPasarB5" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD5" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
@@ -1653,12 +1653,12 @@
                                     <Insets left="80.0" />
                                  </HBox.margin>
                                  <children>
-                                    <Button id="btnPasarB" fx:id="btnPasarC" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
+                                    <Button id="btnPasarB" fx:id="btnPasarB6" mnemonicParsing="false" onAction="#eventAction" text="Agregar a la bolsa">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button id="eliminarLD" fx:id="btnEliminarLD" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
+                                    <Button id="eliminarLD" fx:id="btnEliminarLD6" mnemonicParsing="false" onAction="#eventAction" text="Eliminar de deseados">
                                        <font>
                                           <Font name="SansSerif Bold" size="13.0" />
                                        </font>
