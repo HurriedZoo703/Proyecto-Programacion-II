@@ -2,7 +2,6 @@ package Controladores;
 
 import Modelos.Gestor;
 import Modelos.ListaUsuarios;
-import Modelos.PilaCamisetas;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -43,8 +43,6 @@ public class CatalgoController implements Initializable {
     @FXML
     private Text btn_cerrarS;
     @FXML
-    private Text btn_historial;
-    @FXML
     private ImageView ima_C1;
     @FXML
     private ImageView ima_C2;
@@ -200,6 +198,10 @@ public class CatalgoController implements Initializable {
     private Button btnEliminarLD6;
     @FXML
     private Label NO_HAY;
+    @FXML
+    private Button btnComprarGN;
+    @FXML
+    private Text txtTotal;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -249,10 +251,6 @@ public class CatalgoController implements Initializable {
         if (event.getSource() == btn_cerrarS) {
 
             closeWindow();
-
-        } else if (event.getSource() == btn_historial) {
-
-            System.out.println("mientras");
 
         }
 
@@ -371,6 +369,95 @@ public class CatalgoController implements Initializable {
         }
     }
 
+    private void agregarBolsa(int id, String color, String URL_ima, Text cont) {
+        NodoCamiseta camiseta = new NodoCamiseta(id, color, URL_ima);
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+
+        if (pila.getPilaB().stream().anyMatch(b -> b.getColor().equals(color) && b.getIdPropietario() == id)) {
+            switch (cont.getId()) {
+                case "cont1":
+                    cont1.setText((Integer.parseInt(cont1.getText()) + 1) + "");
+                    break;
+                case "cont2":
+                    cont2.setText((Integer.parseInt(cont2.getText()) + 1) + "");
+                    break;
+                case "cont3":
+                    cont3.setText((Integer.parseInt(cont3.getText()) + 1) + "");
+                    break;
+                case "cont4":
+                    cont4.setText((Integer.parseInt(cont4.getText()) + 1) + "");
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+
+            a.setTitle("Info");
+            a.setContentText("Camiseta agregada exitosamente la bolsa de compras. Indice aumentado en 1.");
+            a.showAndWait();
+            return;
+        }
+
+        pila.setPush(camiseta);
+        pila.guardarCamisetas();
+
+        NodoCamiseta camisetaDes = pila.getCamisetaLD(id, color);
+        if (camisetaDes != null) {
+            pila.eliminarLD(id, color);
+            pila.guardarCamisetasLD();
+        }
+
+        a.setTitle("Info");
+        a.setContentText("Camiseta agregada exitosamente a la bolsa de compras.");
+        a.showAndWait();
+    }
+
+    private void agregarDeseos(int id, String color, String URL_ima) {
+        NodoCamiseta camiseta = new NodoCamiseta(id, color, URL_ima);
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+
+        if (pila.getPilaLD().stream().anyMatch(b -> b.getColor().equals(color) && b.getIdPropietario() == id)) {
+            a.setTitle("Info");
+            a.setContentText("Camiseta agregada exitosamente a deseadas.");
+            a.showAndWait();
+            return;
+        }
+
+        pila.setPushLD(camiseta);
+        pila.guardarCamisetasLD();
+
+        NodoCamiseta cam = pila.getCamiseta(id, color);
+        if (cam != null) {
+            pila.eliminar(id, color);
+            pila.guardarCamisetas();
+        }
+
+        a.setTitle("Info");
+        a.setContentText("Camiseta agregada exitosamente a deseadas.");
+        a.showAndWait();
+    }
+
+    private void moverCamisetaBolsa(int idUsuario, NodoCamiseta camiseta, FlowPane flowDeseo, HBox camisetaHB) {
+        Stack<NodoCamiseta> pilaAux = pila.getCamisetas(idUsuario);
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+
+        if (pilaAux.stream().anyMatch(b -> b.getColor().equals(camiseta.getColor()) && camiseta.getIdPropietario() == idUsuario)) {
+            a.setTitle("Aviso");
+            a.setContentText("La camiseta ya ha sido agregada a la bolsa..!");
+            a.showAndWait();
+            return;
+        }
+
+        pila.setPush(camiseta);
+        pila.guardarCamisetas();
+        a.setTitle("Aviso");
+        a.setContentText("Camiseta agregada de forma esxitosa a la bolsa..!");
+        a.showAndWait();
+
+        flowDeseo.getChildren().remove(camisetaHB);
+        pila.popCamisetaLD(idUsuario, camiseta.getColor());
+        pila.guardarCamisetasLD();
+    }
+
     @FXML
     private void eventAction(ActionEvent event) {
         int id = Integer.parseInt(txtIdUser.getText());
@@ -379,271 +466,115 @@ public class CatalgoController implements Initializable {
         a.setTitle("Aviso");
 
         if (event.getSource() == btn_AgregarABolsa) {
-            String URL_ima = imaDG.getUserData().toString();
 
-            NodoCamiseta c = new NodoCamiseta(id, txtColorDG.getText(), URL_ima);
-
-            if (pila.getPilaB().isEmpty()) {
-                pila.setPush(c);
-                pila.guardarCamisetas(pila.getPilaB());
-                a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                a.showAndWait();
-            } else {
-                if (pila.getPilaB().indexOf(c) != -1) {
-                    a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
-                            + "\nNo se pudo agregar.");
-                    a.showAndWait();
-                } else {
-                    pila.setPush(c);
-                    pila.guardarCamisetas(pila.getPilaB());
-                    a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                    a.showAndWait();
-                }
+            switch (imaDG.getUserData().toString()) {
+                case "/Imagenes/Camiseta-Gris.png":
+                    agregarBolsa(id, "Gris", "/Imagenes/Camiseta-Gris.png", cont1);
+                    break;
+                case "/Imagenes/Camiseta-Blanca.png":
+                    agregarBolsa(id, "Blanca", "/Imagenes/Camiseta-Blanca.png", cont2);
+                    break;
+                case "/Imagenes/Camiseta-Roja.png":
+                    agregarBolsa(id, "Roja", "/Imagenes/Camiseta-Roja.png", cont3);
+                    break;
+                case "/Imagenes/Camiseta-Rosa.png":
+                    agregarBolsa(id, "Rosa", "/Imagenes/Camiseta-Rosa.png", cont4);
+                    break;
+                case "/Imagenes/Camiseta-Turqui.png":
+                    agregarBolsa(id, "Turqui", "/Imagenes/Camiseta-Turqui.png", cont5);
+                    break;
+                case "/Imagenes/Camiseta-Verde.png":
+                    agregarBolsa(id, "Verde", "/Imagenes/Camiseta-Verde.png", cont6);
+                    break;
+                default:
+                    throw new AssertionError();
             }
+
         } else if (event.getSource() == btn_AgregarADeseos) {
-            String URL_ima = imaDG.getUserData().toString();
-
-            NodoCamiseta c = new NodoCamiseta(id, txtColorDG.getText(), URL_ima);
-
-            if (pila.getPilaLD().isEmpty()) {
-                pila.setPushLD(c);
-                pila.guardarCamisetasLD(pila.getPilaLD());
-                a.setContentText("Camiseta agregada exitosamente a la lista de deseos...!");
-                a.showAndWait();
-            } else {
-                if (pila.getPilaLD().indexOf(c) != -1) {
-                    a.setContentText("Esta camiseta ya a sido agregada a la lista de deseos...!"
-                            + "\nNo se pudo agregar.");
-                    a.showAndWait();
-                } else {
-                    pila.setPushLD(c);
-                    pila.guardarCamisetasLD(pila.getPilaLD());
-                    a.setContentText("Camiseta agregada exitosamente a la lista de deseos...!");
-                    a.showAndWait();
-                }
+            switch (imaDG.getUserData().toString()) {
+                case "/Imagenes/Camiseta-Gris.png":
+                    agregarDeseos(id, "Gris", "/Imagenes/Camiseta-Gris.png");
+                    break;
+                case "/Imagenes/Camiseta-Blanca.png":
+                    agregarDeseos(id, "Blanca", "/Imagenes/Camiseta-Blanca.png");
+                    break;
+                case "/Imagenes/Camiseta-Roja.png":
+                    agregarDeseos(id, "Roja", "/Imagenes/Camiseta-Roja.png");
+                    break;
+                case "/Imagenes/Camiseta-Rosa.png":
+                    agregarDeseos(id, "Rosa", "/Imagenes/Camiseta-Rosa.png");
+                    break;
+                case "/Imagenes/Camiseta-Turqui.png":
+                    agregarDeseos(id, "Turqui", "/Imagenes/Camiseta-Turqui.png");
+                    break;
+                case "/Imagenes/Camiseta-Verde.png":
+                    agregarDeseos(id, "Verde", "/Imagenes/Camiseta-Verde.png");
+                    break;
+                default:
+                    throw new AssertionError();
             }
         } else if (event.getSource() == btnPasarB1) {
-
-            NodoCamiseta c = new NodoCamiseta(id, "Gris", "/Imagenes/Camiseta-Gris.png");
-
-            if (pilaB.isEmpty()) {
-                pila.setPush(c);
-                pila.guardarCamisetas(pila.getPilaB());
-                a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                a.showAndWait();
-                flowLD.getChildren().remove(LD_Gris);
-                pila.eliminarLD(id, "Gris");
-                pila.guardarCamisetasLD(pila.getPilaLD());
-                pila.cargarCamisetasLD();
-                mostrarCamisetasLD();
-            } else {
-                if (pilaB.indexOf(c) != -1) {
-                    a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
-                            + "\nNo se pudo agregar.");
-                    a.showAndWait();
-                } else {
-                    pila.setPush(c);
-                    pila.guardarCamisetas(pila.getPilaB());
-                    a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                    a.showAndWait();
-                    flowLD.getChildren().remove(LD_Gris);
-                    pila.eliminarLD(id, "Gris");
-                    pila.guardarCamisetasLD(pila.getPilaLD());
-                    pila.cargarCamisetasLD();
-                    mostrarCamisetasLD();
-                }
-            }
-
+            NodoCamiseta camiseta = new NodoCamiseta(id, "Gris", "/Imagenes/Camiseta-Gris.png");
+            moverCamisetaBolsa(id, camiseta, flowLD, LD_Gris);
         } else if (event.getSource() == btnPasarB2) {
 
-            NodoCamiseta c = new NodoCamiseta(id, "Turqui", "/Imagenes/Camiseta-Turqui.png");
+            NodoCamiseta camiseta = new NodoCamiseta(id, "Turqui", "/Imagenes/Camiseta-Turqui.png");
 
-            if (pilaB.isEmpty()) {
-                pila.setPush(c);
-                pila.guardarCamisetas(pila.getPilaB());
-                a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                a.showAndWait();
-                flowLD.getChildren().remove(LD_Turqui);
-                pila.eliminarLD(id, "Turqui");
-                pila.guardarCamisetasLD(pila.getPilaLD());
-                pila.cargarCamisetasLD();
-                mostrarCamisetasLD();
-            } else {
-                if (pilaB.indexOf(c) != -1) {
-                    a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
-                            + "\nNo se pudo agregar.");
-                    a.showAndWait();
-                } else {
-                    pila.setPush(c);
-                    pila.guardarCamisetas(pila.getPilaB());
-                    a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                    a.showAndWait();
-                    flowLD.getChildren().remove(LD_Turqui);
-                    pila.eliminarLD(id, "Turqui");
-                    pila.guardarCamisetasLD(pila.getPilaLD());
-                    pila.cargarCamisetasLD();
-                    mostrarCamisetasLD();
-                }
-            }
+            moverCamisetaBolsa(id, camiseta, flowLD, LD_Turqui);
         } else if (event.getSource() == btnPasarB3) {
 
-            NodoCamiseta c = new NodoCamiseta(id, "Roja", "/Imagenes/Camiseta-Roja.png");
+            NodoCamiseta camiseta = new NodoCamiseta(id, "Roja", "/Imagenes/Camiseta-Roja.png");
 
-            if (pilaB.isEmpty()) {
-                pila.setPush(c);
-                pila.guardarCamisetas(pila.getPilaB());
-                a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                a.showAndWait();
-                flowLD.getChildren().remove(LD_Roja);
-                pila.eliminarLD(id, "Roja");
-                pila.guardarCamisetasLD(pila.getPilaLD());
-                pila.cargarCamisetasLD();
-                mostrarCamisetasLD();
-            } else {
-                if (pilaB.indexOf(c) != -1) {
-                    a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
-                            + "\nNo se pudo agregar.");
-                    a.showAndWait();
-                } else {
-                    pila.setPush(c);
-                    pila.guardarCamisetas(pila.getPilaB());
-                    a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                    a.showAndWait();
-                    flowLD.getChildren().remove(LD_Roja);
-                    pila.eliminarLD(id, "Roja");
-                    pila.guardarCamisetasLD(pila.getPilaLD());
-                    pila.cargarCamisetasLD();
-                    mostrarCamisetasLD();
-                }
-            }
+            moverCamisetaBolsa(id, camiseta, flowLD, LD_Roja);
         } else if (event.getSource() == btnPasarB4) {
 
-            NodoCamiseta c = new NodoCamiseta(id, "Rosa", "/Imagenes/Camiseta-Rosa.png");
+            NodoCamiseta camiseta = new NodoCamiseta(id, "Rosa", "/Imagenes/Camiseta-Rosa.png");
 
-            if (pilaB.isEmpty()) {
-                pila.setPush(c);
-                pila.guardarCamisetas(pila.getPilaB());
-                a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                a.showAndWait();
-                flowLD.getChildren().remove(LD_Rosa);
-                pila.eliminarLD(id, "Rosa");
-                pila.guardarCamisetasLD(pila.getPilaLD());
-                pila.cargarCamisetasLD();
-                mostrarCamisetasLD();
-            } else {
-                if (pilaB.indexOf(c) != -1) {
-                    a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
-                            + "\nNo se pudo agregar.");
-                    a.showAndWait();
-                } else {
-                    pila.setPush(c);
-                    pila.guardarCamisetas(pila.getPilaB());
-                    a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                    a.showAndWait();
-                    flowLD.getChildren().remove(LD_Rosa);
-                    pila.eliminarLD(id, "Rosa");
-                    pila.guardarCamisetasLD(pila.getPilaLD());
-                    pila.cargarCamisetasLD();
-                    mostrarCamisetasLD();
-                }
-            }
+            moverCamisetaBolsa(id, camiseta, flowLD, LD_Rosa);
         } else if (event.getSource() == btnPasarB5) {
 
-            NodoCamiseta c = new NodoCamiseta(id, "Verde", "/Imagenes/Camiseta-Verde.png");
+            NodoCamiseta camiseta = new NodoCamiseta(id, "Verde", "/Imagenes/Camiseta-Verde.png");
 
-            if (pilaB.isEmpty()) {
-                pila.setPush(c);
-                pila.guardarCamisetas(pila.getPilaB());
-                a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                a.showAndWait();
-                flowLD.getChildren().remove(LD_Verde);
-                pila.eliminarLD(id, "Verde");
-                pila.guardarCamisetasLD(pila.getPilaLD());
-                pila.cargarCamisetasLD();
-                mostrarCamisetasLD();
-            } else {
-                if (pilaB.indexOf(c) != -1) {
-                    a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
-                            + "\nNo se pudo agregar.");
-                    a.showAndWait();
-                } else {
-                    pila.setPush(c);
-                    pila.guardarCamisetas(pila.getPilaB());
-                    a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                    a.showAndWait();
-                    flowLD.getChildren().remove(LD_Verde);
-                    pila.eliminarLD(id, "Verde");
-                    pila.guardarCamisetasLD(pila.getPilaLD());
-                    pila.cargarCamisetasLD();
-                    mostrarCamisetasLD();
-                }
-            }
+            moverCamisetaBolsa(id, camiseta, flowLD, LD_Verde);
         } else if (event.getSource() == btnPasarB6) {
 
-            NodoCamiseta c = new NodoCamiseta(id, "Blanca", "/Imagenes/Camiseta-Blanca.png");
+            NodoCamiseta camiseta = new NodoCamiseta(id, "Blanca", "/Imagenes/Camiseta-Blanca.png");
 
-            if (pilaB.isEmpty()) {
-                pila.setPush(c);
-                pila.guardarCamisetas(pila.getPilaB());
-                a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                a.showAndWait();
-                flowLD.getChildren().remove(LD_Blanca);
-                pila.eliminarLD(id, "Blanca");
-                pila.guardarCamisetasLD(pila.getPilaLD());
-                pila.cargarCamisetasLD();
-                mostrarCamisetasLD();
-            } else {
-                if (pilaB.indexOf(c) != -1) {
-                    a.setContentText("Esta camiseta ya a sido agregada a la bolsa de compras...!"
-                            + "\nNo se pudo agregar.");
-                    a.showAndWait();
-                } else {
-                    pila.setPush(c);
-                    pila.guardarCamisetas(pila.getPilaB());
-                    a.setContentText("Camiseta agregada exitosamente a la bolsa de compras...!");
-                    a.showAndWait();
-                    flowLD.getChildren().remove(LD_Blanca);
-                    pila.eliminarLD(id, "Blanca");
-                    pila.guardarCamisetasLD(pila.getPilaLD());
-                    pila.cargarCamisetasLD();
-                    mostrarCamisetasLD();
-
-                }
-            }
+            moverCamisetaBolsa(id, camiseta, flowLD, LD_Verde);
         } else if (event.getSource() == btnEliminarLD1) {
             flowLD.getChildren().remove(LD_Gris);
             pila.eliminarLD(id, "Gris");
-            pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.guardarCamisetasLD();
             pila.cargarCamisetasLD();
             mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD2) {
             flowLD.getChildren().remove(LD_Turqui);
             pila.eliminarLD(id, "Turqui");
-            pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.guardarCamisetasLD();
             pila.cargarCamisetasLD();
             mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD3) {
             flowLD.getChildren().remove(LD_Roja);
             pila.eliminarLD(id, "Roja");
-            pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.guardarCamisetasLD();
             pila.cargarCamisetasLD();
             mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD4) {
             flowLD.getChildren().remove(LD_Rosa);
             pila.eliminarLD(id, "Rosa");
-            pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.guardarCamisetasLD();
             pila.cargarCamisetasLD();
             mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD5) {
             flowLD.getChildren().remove(LD_Verde);
             pila.eliminarLD(id, "Verde");
-            pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.guardarCamisetasLD();
             pila.cargarCamisetasLD();
             mostrarCamisetasLD();
         } else if (event.getSource() == btnEliminarLD6) {
             flowLD.getChildren().remove(LD_Blanca);
             pila.eliminarLD(id, "Blanca");
-            pila.guardarCamisetasLD(pila.getPilaLD());
+            pila.guardarCamisetasLD();
             pila.cargarCamisetasLD();
             mostrarCamisetasLD();
         }
@@ -656,9 +587,9 @@ public class CatalgoController implements Initializable {
 
             int idPropietario = Integer.parseInt(txtIdUser.getText());
 
-            NodoCamiseta camiseta1 = pila.getCamiseta(idPropietario);
+            Stack<NodoCamiseta> camisetas = pila.getCamisetas(idPropietario);
 
-            if (camiseta1 == null) {
+            if (camisetas == null) {
 
                 flowBolsa.getChildren().clear();
                 NO_HAY.setVisible(true);
@@ -668,7 +599,7 @@ public class CatalgoController implements Initializable {
             List<HBox> camisetasAagregar = new ArrayList<>();
 
             if (!flowBolsa.getChildren().isEmpty()) {
-                Stack<NodoCamiseta> pilaB = pila.getCamisetas(camiseta1.getIdPropietario());
+                Stack<NodoCamiseta> pilaB = pila.getCamisetas(idPropietario);
 
                 for (NodoCamiseta camiseta : pilaB) {
                     for (Node node : flowBolsa.getChildren()) {
@@ -701,7 +632,7 @@ public class CatalgoController implements Initializable {
 
             int idPropietario = Integer.parseInt(txtIdUser.getText());
 
-            NodoCamiseta camiseta1 = pila.getCamisetaLD(idPropietario);
+            Stack<NodoCamiseta> camiseta1 = pila.getCamisetasLD(idPropietario);
 
             if (camiseta1 == null) {
 
@@ -713,7 +644,7 @@ public class CatalgoController implements Initializable {
             List<HBox> camisetasAagregar = new ArrayList<>();
 
             if (!flowLD.getChildren().isEmpty()) {
-                Stack<NodoCamiseta> pilaLD = pila.getCamisetasLD(camiseta1.getIdPropietario());
+                Stack<NodoCamiseta> pilaLD = pila.getCamisetasLD(idPropietario);
 
                 for (NodoCamiseta camiseta : pilaLD) {
                     for (Node node : flowLD.getChildren()) {
@@ -738,112 +669,161 @@ public class CatalgoController implements Initializable {
             System.out.println("Se produjo un error: " + e.getMessage());
         }
     }
-
+    private float valor = 0;
     @FXML
     private void toggleCant(MouseEvent event) {
-        int id = Integer.parseInt(txtIdUser.getText());
-        ImageView ima = (ImageView) event.getSource();
+        int id = Integer.parseInt(txtIdUser.getText());               
 
-        switch (ima.getParent().getId()) {
-            case "B_Rosa":
-                if (event.getSource() == aum1) {
-                    int dato = Integer.parseInt(cont1.getText()) + 1;
-                    cont1.setText("" + dato);
-                } else if (event.getSource() == dec1) {
-                    int dato = Integer.parseInt(cont1.getText()) - 1;
-                    if (dato >= 0) {
+        if (event.getSource() == btnComprarGN) {
+
+            Stack<NodoCamiseta> camisetas = pila.getCamisetas(id);
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Aviso");
+            if (camisetas != null) {
+                a.setContentText("Su compra ha sido exitosa, por un costo de: " + txtTotal.getText());
+                a.showAndWait();
+                for (NodoCamiseta camiseta : camisetas) {
+                    pila.popCamiseta(id, camiseta.getColor());
+                }
+                valor = 0;
+                txtTotal.setText("00000.0 COP");
+                pila.guardarCamisetas();
+                mostrarCamisetasB();
+            }
+        } else {
+            ImageView ima = (ImageView) event.getSource();
+            
+            switch (ima.getParent().getId()) {
+                case "B_Rosa":
+                    if (event.getSource() == aum1) {
+                        int dato = Integer.parseInt(cont1.getText()) + 1;
                         cont1.setText("" + dato);
-                    } else {
-                        flowBolsa.getChildren().remove(B_Rosa);
-                        pila.eliminar(id, "Rosa");
-                        pila.guardarCamisetas(pila.getPilaB());
-                        pila.cargarCamisetas();
+                        valor += 45000.0f;
+                        txtTotal.setText((valor) + " COP");
+                    } else if (event.getSource() == dec1) {
+                        int dato = Integer.parseInt(cont1.getText()) - 1;
+                        if (dato >= 0) {
+                            cont1.setText("" + dato);
+                            valor -= 45000.0f;
+                            txtTotal.setText((valor) + " COP");
+                        } else {
+                            flowBolsa.getChildren().remove(B_Rosa);
+                            pila.eliminar(id, "Rosa");
+                            pila.guardarCamisetas();
+                            pila.cargarCamisetas();
+                            mostrarCamisetasB();
+                        }
                     }
-                }
-                break;
-            case "B_Blanca":
-                if (event.getSource() == aum2) {
-                    int dato = Integer.parseInt(cont2.getText()) + 1;
-                    cont2.setText("" + dato);
-                } else if (event.getSource() == dec2) {
-                    int dato = Integer.parseInt(cont2.getText()) - 1;
-                    if (dato >= 0) {
+                    break;
+                case "B_Blanca":
+                    if (event.getSource() == aum2) {
+                        int dato = Integer.parseInt(cont2.getText()) + 1;
                         cont2.setText("" + dato);
-                    } else {
-                        flowBolsa.getChildren().remove(B_Blanca);
-                        pila.eliminar(id, "Blanca");
-                        pila.guardarCamisetas(pila.getPilaB());
-                        pila.cargarCamisetas();
+                        valor += 45000.0f;
+                        txtTotal.setText((valor) + " COP");
+                    } else if (event.getSource() == dec2) {
+                        int dato = Integer.parseInt(cont2.getText()) - 1;
+                        if (dato >= 0) {
+                            cont2.setText("" + dato);
+                            valor -= 45000.0f;
+                            txtTotal.setText((valor) + " COP");
+                        } else {
+                            flowBolsa.getChildren().remove(B_Blanca);
+                            pila.eliminar(id, "Blanca");
+                            pila.guardarCamisetas();
+                            pila.cargarCamisetas();
+                            mostrarCamisetasB();
+                        }
                     }
-                }
-                break;
-            case "B_Verde":
-                if (event.getSource() == aum3) {
-                    int dato = Integer.parseInt(cont3.getText()) + 1;
-                    cont3.setText("" + dato);
-                } else if (event.getSource() == dec3) {
-                    int dato = Integer.parseInt(cont3.getText()) - 1;
-                    if (dato >= 0) {
+                    break;
+                case "B_Verde":
+                    if (event.getSource() == aum3) {
+                        int dato = Integer.parseInt(cont3.getText()) + 1;
                         cont3.setText("" + dato);
-                    } else {
-                        flowBolsa.getChildren().remove(B_Verde);
-                        pila.eliminar(id, "Verde");
-                        pila.guardarCamisetas(pila.getPilaB());
-                        pila.cargarCamisetas();
+                        valor += 45000.0f;
+                        txtTotal.setText((valor) + " COP");
+                    } else if (event.getSource() == dec3) {
+                        int dato = Integer.parseInt(cont3.getText()) - 1;
+                        if (dato >= 0) {
+                            cont3.setText("" + dato);
+                            valor -= 45000.0f;
+                            txtTotal.setText((valor) + " COP");
+                        } else {
+                            flowBolsa.getChildren().remove(B_Verde);
+                            pila.eliminar(id, "Verde");
+                            pila.guardarCamisetas();
+                            pila.cargarCamisetas();
+                            mostrarCamisetasB();
+                        }
                     }
-                }
-                break;
-            case "B_Roja":
-                if (event.getSource() == aum4) {
-                    int dato = Integer.parseInt(cont4.getText()) + 1;
-                    cont4.setText("" + dato);
-                } else if (event.getSource() == dec4) {
-                    int dato = Integer.parseInt(cont4.getText()) - 1;
-                    if (dato >= 0) {
+                    break;
+                case "B_Roja":
+                    if (event.getSource() == aum4) {
+                        int dato = Integer.parseInt(cont4.getText()) + 1;
                         cont4.setText("" + dato);
-                    } else {
-                        flowBolsa.getChildren().remove(B_Roja);
-                        pila.eliminar(id, "Roja");
-                        pila.guardarCamisetas(pila.getPilaB());
-                        pila.cargarCamisetas();
+                        valor += 45000.0f;
+                        txtTotal.setText((valor) + " COP");
+                    } else if (event.getSource() == dec4) {
+                        int dato = Integer.parseInt(cont4.getText()) - 1;
+                        if (dato >= 0) {
+                            cont4.setText("" + dato);
+                            valor -= 45000.0f;
+                            txtTotal.setText((valor) + " COP");
+                        } else {
+                            flowBolsa.getChildren().remove(B_Roja);
+                            pila.eliminar(id, "Roja");
+                            pila.guardarCamisetas();
+                            pila.cargarCamisetas();
+                            mostrarCamisetasB();
+                        }
                     }
-                }
-                break;
-            case "B_Gris":
-                if (event.getSource() == aum5) {
-                    int dato = Integer.parseInt(cont5.getText()) + 1;
-                    cont5.setText("" + dato);
-                } else if (event.getSource() == dec5) {
-                    int dato = Integer.parseInt(cont5.getText()) - 1;
-                    if (dato >= 0) {
+                    break;
+                case "B_Gris":
+                    if (event.getSource() == aum5) {
+                        int dato = Integer.parseInt(cont5.getText()) + 1;
                         cont5.setText("" + dato);
-                    } else {
-                        flowBolsa.getChildren().remove(B_Gris);
-                        pila.eliminar(id, "Gris");
-                        pila.guardarCamisetas(pila.getPilaB());
-                        pila.cargarCamisetas();
+                        valor += 45000.0f;
+                        txtTotal.setText((valor) + " COP");
+                    } else if (event.getSource() == dec5) {
+                        int dato = Integer.parseInt(cont5.getText()) - 1;
+                        if (dato >= 0) {
+                            cont5.setText("" + dato);
+                            valor -= 45000.0f;
+                            txtTotal.setText((valor) + " COP");
+                        } else {
+                            flowBolsa.getChildren().remove(B_Gris);
+                            pila.eliminar(id, "Gris");
+                            pila.guardarCamisetas();
+                            pila.cargarCamisetas();
+                            mostrarCamisetasB();
+                        }
                     }
-                }
-                break;
-            case "B_Turqui":
-                if (event.getSource() == aum6) {
-                    int dato = Integer.parseInt(cont6.getText()) + 1;
-                    cont6.setText("" + dato);
-                } else if (event.getSource() == dec6) {
-                    int dato = Integer.parseInt(cont6.getText()) - 1;
-                    if (dato >= 0) {
+                    break;
+                case "B_Turqui":
+                    if (event.getSource() == aum6) {
+                        int dato = Integer.parseInt(cont6.getText()) + 1;
                         cont6.setText("" + dato);
-                    } else {
-                        flowBolsa.getChildren().remove(B_Turqui);
-                        pila.eliminar(id, "Turqui");
-                        pila.guardarCamisetas(pila.getPilaB());
-                        pila.cargarCamisetas();
+                        valor += 45000.0f;
+                        txtTotal.setText((valor) + " COP");
+                    } else if (event.getSource() == dec6) {
+                        int dato = Integer.parseInt(cont6.getText()) - 1;
+                        if (dato >= 0) {
+                            cont6.setText("" + dato);
+                            valor -= 45000.0f;
+                            txtTotal.setText((valor) + " COP");
+                        } else {
+                            flowBolsa.getChildren().remove(B_Turqui);
+                            pila.eliminar(id, "Turqui");
+                            pila.guardarCamisetas();
+                            pila.cargarCamisetas();
+                            mostrarCamisetasB();
+                        }
                     }
-                }
-                break;
+                    break;
 
-            default:
-                throw new AssertionError();
+                default:
+                    throw new AssertionError();
+            }
         }
     }
 }

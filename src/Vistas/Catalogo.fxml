@@ -498,7 +498,7 @@
                   </FlowPane>
                </content>
             </ScrollPane>
-            <HBox alignment="CENTER" layoutY="551.0" prefHeight="50.0" prefWidth="450.0" stylesheets="@../Css/Estilos.css">
+            <HBox alignment="CENTER" layoutY="551.0" prefHeight="50.0" prefWidth="450.0" spacing="60.0" stylesheets="@../Css/Estilos.css">
                <children>
                   <Text id="etiqueta" fx:id="btn_cerrarS" fill="#4bc3eb" onMouseClicked="#mouseEvent" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerrar Sesión">
                      <font>
@@ -506,11 +506,6 @@
                      </font>
                   </Text>
                   <Text fx:id="txtIdUser" fill="WHITESMOKE" strokeType="OUTSIDE" strokeWidth="0.0" text="0000000000" />
-                  <Text id="etiqueta" fx:id="btn_historial" fill="#4bc3eb" onMouseClicked="#mouseEvent" strokeType="OUTSIDE" strokeWidth="0.0" text="Historial de compras">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
                   <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="117.0" spacing="10.0">
                      <children>
                         <ImageView fx:id="btnFav4" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#mouseCliked" pickOnBounds="true" preserveRatio="true">
@@ -543,7 +538,7 @@
                   </Text>
                </children>
             </HBox>
-            <ScrollPane hbarPolicy="NEVER" layoutY="50.0" prefHeight="500.0" prefWidth="450.0" vbarPolicy="NEVER">
+            <ScrollPane hbarPolicy="NEVER" layoutY="50.0" prefHeight="450.0" prefWidth="450.0" vbarPolicy="NEVER">
                <content>
                   <FlowPane fx:id="flowBolsa" alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="650.0" prefWidth="450.0" vgap="10.0">
                      <children>
@@ -1127,6 +1122,31 @@
                </children>
                <padding>
                   <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutY="500.0" prefHeight="50.0" prefWidth="450.0" stylesheets="@../Css/Estilos.css">
+               <children>
+                  <Button fx:id="btnComprarGN" mnemonicParsing="false" onMouseClicked="#toggleCant" styleClass="botonesLogin" text="Comprar" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total:">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="SansSerif Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtTotal" strokeType="OUTSIDE" strokeWidth="0.0" text="00000.0 COP">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
                </padding>
             </HBox>
          </children>

@@ -48,26 +48,23 @@ public class PilaCamisetas {
         return pila;
     }
 
-    public NodoCamiseta getCamiseta(int id) {
+    public NodoCamiseta getCamiseta(int id, String color) {
         for (NodoCamiseta aux : pilaB) {
-            if (aux.getIdPropietario() == id) {
+            if (aux.getIdPropietario() == id && aux.getColor().equals(color)) {
                 return aux;
             }
         }
         return null;
     }
 
-    public void popCamiseta(int id) {
+    public void popCamiseta(int id, String color) {
         Alert alert = new Alert(Alert.AlertType.NONE);
 
         NodoCamiseta aux = null;
         if (!pilaB.empty()) {
-            aux = getCamiseta(id);
+            aux = getCamiseta(id, color);
             if ((aux != null) && (pilaB.remove(aux))) {
-                alert.setAlertType(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Aviso.");
-                alert.setContentText("Camiseta eliminda.");
-                alert.showAndWait();
+                System.out.println("Camiseta eliminda.");
             } else {
                 alert.setAlertType(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Aviso.");
@@ -131,26 +128,23 @@ public class PilaCamisetas {
         return pila;
     }
 
-    public NodoCamiseta getCamisetaLD(int id) {
+    public NodoCamiseta getCamisetaLD(int id, String color) {
         for (NodoCamiseta aux : pilaLD) {
-            if (aux.getIdPropietario() == id) {
+            if (aux.getIdPropietario() == id && aux.getColor().equals(color)) {
                 return aux;
             }
         }
         return null;
     }
 
-    public void popCamisetaLD(int id) {
+    public void popCamisetaLD(int id, String color) {
         Alert alert = new Alert(Alert.AlertType.NONE);
 
         NodoCamiseta aux = null;
         if (!pilaLD.empty()) {
-            aux = getCamiseta(id);
+            aux = getCamisetaLD(id, color);
             if ((aux != null) && (pilaLD.remove(aux))) {
-                alert.setAlertType(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Aviso.");
-                alert.setContentText("Camiseta eliminda.");
-                alert.showAndWait();
+                System.out.println("Camiseta elminada");
             } else {
                 alert.setAlertType(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Aviso.");
@@ -194,14 +188,14 @@ public class PilaCamisetas {
         }
     }
 
-    public void guardarCamisetas(Stack<NodoCamiseta> pila) {
+    public void guardarCamisetas() {
 
         String direccion = System.getProperty("user.dir") + "\\src\\Archivos_TXT\\CamisetasBolsa.txt";
 
         Path archivo = Paths.get(direccion);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo.toFile(), false))) {
-            Stack<NodoCamiseta> camiAux = pila;
+            Stack<NodoCamiseta> camiAux = pilaB;
 
             for (NodoCamiseta camiseta : camiAux) {
                 writer.write(camiseta.getIdPropietario() + ", ");
@@ -245,14 +239,14 @@ public class PilaCamisetas {
         }
     }
 
-    public void guardarCamisetasLD(Stack<NodoCamiseta> pila) {
+    public void guardarCamisetasLD() {
 
         String direccion = System.getProperty("user.dir") + "\\src\\Archivos_TXT\\CamisetasDeseos.txt";
 
         Path archivo = Paths.get(direccion);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo.toFile(), false))) {
-            Stack<NodoCamiseta> camiAux = pila;
+            Stack<NodoCamiseta> camiAux = pilaLD;
 
             for (NodoCamiseta camiseta : camiAux) {
                 writer.write(camiseta.getIdPropietario() + ", ");
